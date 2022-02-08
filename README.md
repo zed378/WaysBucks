@@ -1,2 +1,2 @@
 # WaysBucks
-WaysBucks complete project. I
+WaysBucks complete project.
