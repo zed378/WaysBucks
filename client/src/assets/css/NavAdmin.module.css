@@ -1,0 +1,366 @@
+.navContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 50px 150px;
+}
+
+.navContainer > img {
+  height: 125px;
+  cursor: pointer;
+}
+
+.profileWrapper {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.imgWrapper {
+  display: inline-block;
+  position: relative;
+  width: 75px;
+  height: 75px;
+  overflow: hidden;
+  border: solid 3px #bd0707;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.imgWrapper > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50%;
+}
+
+@media only screen and (max-width: 1440px) {
+  .navContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 30px 75px;
+  }
+
+  .navContainer > img {
+    height: 100px;
+    cursor: pointer;
+  }
+
+  .profileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .imgWrapper {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border: solid 3px #bd0707;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .imgWrapper > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50%;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .navContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 30px 50px;
+  }
+
+  .navContainer > img {
+    height: 100px;
+    cursor: pointer;
+  }
+
+  .profileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .imgWrapper {
+    display: inline-block;
+    position: relative;
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    border: solid 3px #bd0707;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .imgWrapper > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .navContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 30px 75px;
+  }
+
+  .navContainer > img {
+    height: 75px;
+    cursor: pointer;
+  }
+
+  .profileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .imgWrapper {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border: solid 3px #bd0707;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .imgWrapper > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .navContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 25px 50px;
+  }
+
+  .navContainer > img {
+    height: 75px;
+    cursor: pointer;
+  }
+
+  .profileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .imgWrapper {
+    display: inline-block;
+    position: relative;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    border: solid 3px #bd0707;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .imgWrapper > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 25px 50px;
+  }
+
+  .navContainer > img {
+    height: 65px;
+    cursor: pointer;
+  }
+
+  .profileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .imgWrapper {
+    display: inline-block;
+    position: relative;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    border: solid 3px #bd0707;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .imgWrapper > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 25px 35px;
+  }
+
+  .navContainer > img {
+    height: 65px;
+    cursor: pointer;
+  }
+
+  .profileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .imgWrapper {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border: solid 3px #bd0707;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .imgWrapper > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .navContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 25px 35px;
+  }
+
+  .navContainer > img {
+    height: 65px;
+    cursor: pointer;
+  }
+
+  .profileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .imgWrapper {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border: solid 3px #bd0707;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .imgWrapper > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50%;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .navContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 20px 35px;
+  }
+
+  .navContainer > img {
+    height: 50px;
+    cursor: pointer;
+  }
+
+  .profileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .imgWrapper {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border: solid 3px #bd0707;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .imgWrapper > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50%;
+  }
+}
