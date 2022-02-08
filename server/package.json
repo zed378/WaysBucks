@@ -1,0 +1,22 @@
+{
+  "name": "waysbucks-backend",
+  "version": "1.0.0",
+  "description": "Backend handler for Waysbucks project.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "This is jus a test"
+  },
+  "keywords": [
+    "back-end",
+    "backend"
+  ],
+  "author": "Zed",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
