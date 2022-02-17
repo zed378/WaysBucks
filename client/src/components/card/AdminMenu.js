@@ -42,21 +42,21 @@ function AdminMenu(props) {
         <hr />
         <div
           className={cssModules.menuOption}
-          onClick={() => navigate("/product-add")}
+          onClick={() => navigate("/product")}
         >
           <div>
             <img src={product} alt="Product" />
           </div>
-          <p>Add Product</p>
+          <p>Product</p>
         </div>
         <div
           className={cssModules.menuOption}
-          onClick={() => navigate("/topping-add")}
+          onClick={() => navigate("/topping")}
         >
           <div>
             <img src={topping} alt="Topping" />
           </div>
-          <p>Add Topping</p>
+          <p>Topping</p>
         </div>
         <hr />
         <div className={cssModules.menuOption} onClick={LogOut}>

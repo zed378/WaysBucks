@@ -1,19 +1,36 @@
 // import packages
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 // import assets
 import logo from "../../assets/img/logo.svg";
-import profile from "../../assets/img/profile.jpg";
 import cssModules from "../../assets/css/NavAdmin.module.css";
+import { UserContext } from "../../context/UserContext";
 
 // import component
 import AdminMenu from "../card/AdminMenu";
 
+// import config
+import { API } from "../../config/api";
+
 function NavAdmin() {
   // define state
   const [dropModal, setDropModal] = useState(false);
+  const [user, setUser] = useState([]);
+  const [state, dispatch] = useContext(UserContext);
 
+  const getUser = async () => {
+    try {
+      const response = await API.get(`/user/${state.user.id}`);
+      setUser(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
   let navigate = useNavigate();
 
   return (
@@ -28,7 +45,7 @@ function NavAdmin() {
           className={cssModules.imgWrapper}
           onClick={() => setDropModal(true)}
         >
-          <img src={profile} alt="profile" />
+          <img src={user.photo} alt="profile" />
         </div>
       </div>
     </>

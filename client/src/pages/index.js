@@ -5,6 +5,8 @@ import Profile from "./Profile";
 import Income from "./admin/Income";
 import ProductAdd from "./admin/ProductAdd";
 import ToppingAdd from "./admin/ToppingAdd";
+import Product from "./admin/Product";
+import Topping from "./admin/Topping";
 import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
 import PopUp from "../components/card/PopUp";
@@ -17,6 +19,8 @@ export {
   Income,
   ProductAdd,
   ToppingAdd,
+  Product,
+  Topping,
   Register,
   Login,
   PopUp,

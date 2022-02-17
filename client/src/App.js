@@ -15,6 +15,8 @@ import {
   Income,
   ProductAdd,
   ToppingAdd,
+  Product,
+  Topping,
   PopUp,
 } from "./pages";
 
@@ -87,9 +89,15 @@ function App() {
           <Route exact path="/" element={<LandingPage />} />
           <Route exact path="/" element={<PrivateRoute />}>
             <Route exact path="/cart" element={<Cart />} />
-            <Route exact path="/detail-product" element={<DetailProduct />} />
+            <Route
+              exact
+              path="/detail-product/:id"
+              element={<DetailProduct />}
+            />
             <Route exact path="/profile" element={<Profile />} />
             <Route exact path="/income" element={<Income />} />
+            <Route exact path="/product" element={<Product />} />
+            <Route exact path="/topping" element={<Topping />} />
             <Route exact path="/product-add" element={<ProductAdd />} />
             <Route exact path="/topping-add" element={<ToppingAdd />} />
           </Route>

@@ -64,7 +64,7 @@ function ProductAdd() {
         setSuccess(true);
         setTimeout(() => {
           setSuccess(false);
-          navigate("/");
+          navigate("/product");
         }, 3000);
       } else if (response.data.status === "Failed") {
         setFail(true);

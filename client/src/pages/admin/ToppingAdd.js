@@ -58,13 +58,13 @@ function ToppingAdd() {
       formData.set("price", form.price);
       formData.set("thumbnail", form.thumbnail[0], form.thumbnail[0].name);
 
-      const response = await API.post("/product", formData, config);
+      const response = await API.post("/topping", formData, config);
 
       if (response.data.status === "Success") {
         setSuccess(true);
         setTimeout(() => {
           setSuccess(false);
-          navigate("/");
+          navigate("/topping");
         }, 3000);
       } else if (response.data.status === "Failed") {
         setFail(true);
