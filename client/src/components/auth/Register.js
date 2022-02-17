@@ -44,7 +44,7 @@ function Register(props) {
       const body = JSON.stringify(form);
 
       const response = await API.post("/register", body, config);
-      console.log(response.data);
+      console.log(response);
 
       if (response.data.status === "Success") {
         setSuccess(true);
@@ -56,6 +56,12 @@ function Register(props) {
         setRegistered(true);
         setTimeout(setRegistered(false), 4000);
       }
+
+      setForm({
+        name: "",
+        email: "",
+        password: "",
+      });
     } catch (error) {
       setFailed(true);
       setTimeout(setFailed(false), 4000);

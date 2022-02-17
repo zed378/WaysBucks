@@ -49,7 +49,7 @@ exports.register = async (req, res) => {
         password: encryptPass,
       });
     } else {
-      res.status(409).send({
+      res.status(400).send({
         status: "Registered",
         message: "Email Already Registered",
       });
