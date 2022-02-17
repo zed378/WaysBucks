@@ -13,27 +13,6 @@ const reducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case "LOGIN_ADMIN":
-      return {
-        isLogin: true,
-        isAdmin: true,
-        user: payload,
-      };
-
-    case "LOGIN_USER":
-      return {
-        isLogin: true,
-        isAdmin: false,
-        user: payload,
-      };
-
-    case "LOGOUT":
-      return {
-        isLogin: false,
-        isAdmin: false,
-        user: {},
-      };
-
     case "logShow":
       return {
         logModal: true,
@@ -66,6 +45,29 @@ const reducer = (state, action) => {
         isLogin: true,
         isAdmin: false,
         isPop: false,
+      };
+
+    case "SUCCESS":
+    case "LOGIN_ADMIN":
+      return {
+        isLogin: true,
+        isAdmin: true,
+        user: payload,
+      };
+
+    case "LOGIN_USER":
+      return {
+        isLogin: true,
+        isAdmin: false,
+        user: payload,
+      };
+
+    case "ERROR":
+    case "LOGOUT":
+      return {
+        isLogin: false,
+        isAdmin: false,
+        user: {},
       };
 
     default:

@@ -17,7 +17,14 @@ function Login(props) {
 
   const [state, dispatch] = useContext(UserContext);
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const status = document.getElementById("status").value;
 
@@ -30,13 +37,6 @@ function Login(props) {
         type: "LOGIN_USER",
       });
     }
-  };
-
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
   };
 
   return (
@@ -57,11 +57,6 @@ function Login(props) {
             placeholder="Password"
             onChange={handleChange}
           />
-          <select name="status" id="status" onChange={handleChange}>
-            <option value="">--- Choose Status ---</option>
-            <option value="Admin">Admin</option>
-            <option value="User">User</option>
-          </select>
           <button type="submit">Login</button>
         </form>
         <p onClick={regCard}>
