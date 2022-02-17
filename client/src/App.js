@@ -31,14 +31,7 @@ if (localStorage.token) {
 }
 
 function App() {
-  // init context
   const [state, dispatch] = useContext(UserContext);
-
-  useEffect(() => {
-    if (localStorage.token) {
-      setAuthToken(localStorage.token);
-    }
-  }, [state]);
 
   const checkUser = async () => {
     try {
