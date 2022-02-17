@@ -19,10 +19,11 @@ function Login(props) {
   const [form, setForm] = useState({
     email: "",
     password: "",
-    status: "",
   });
 
   const [state, dispatch] = useContext(UserContext);
+
+  const { email, password } = form;
 
   const handleChange = (e) => {
     setForm({
@@ -32,17 +33,47 @@ function Login(props) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const status = document.getElementById("status").value;
+    try {
+      e.preventDefault();
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
 
-    if (status === "Admin") {
-      dispatch({
-        type: "LOGIN_ADMIN",
-      });
-    } else {
-      dispatch({
-        type: "LOGIN_USER",
-      });
+      const body = JSON.stringify(form);
+
+      const response = await API.post("/login", body, config);
+
+      console.log(response);
+
+      if (response.data.status === "404") {
+        setRegistered(true);
+        setTimeout(() => {
+          setRegistered(false);
+        }, 4000);
+      } else if (
+        response.data.status === "Success" &&
+        response.data.data.isAdmin === 0
+      ) {
+        dispatch({
+          type: "LOGIN_USER",
+          payload: response.data.data,
+        });
+      } else if (
+        response.data.status === "Success" &&
+        response.data.data.isAdmin === 1
+      ) {
+        dispatch({
+          type: "LOGIN_ADMIN",
+          payload: response.data.data,
+        });
+      }
+    } catch (error) {
+      setFailed(true);
+      setTimeout(() => {
+        setFailed(false);
+      }, 4000);
     }
   };
 
@@ -91,13 +122,17 @@ function Login(props) {
             type="text"
             name="email"
             placeholder="Email"
+            value={email}
             onChange={handleChange}
+            required
           />
           <input
             type="password"
             name="password"
             placeholder="Password"
+            value={password}
             onChange={handleChange}
+            required
           />
           <button type="submit">Login</button>
         </form>

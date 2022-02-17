@@ -19,8 +19,9 @@ exports.register = async (req, res) => {
 
   // check if error
   if (error)
-    return res.status(400).send({
+    return res.send({
       error: {
+        status: "password",
         message: error.details[0].message,
       },
     });
@@ -186,6 +187,7 @@ exports.checkAuth = async (req, res) => {
           id: dataUser.id,
           name: dataUser.name,
           email: dataUser.email,
+          isAdmin: dataUser.isAdmin,
         },
       },
     });

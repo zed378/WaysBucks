@@ -1,5 +1,5 @@
 // import package
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // import assets
@@ -22,9 +22,56 @@ import {
 import { Nav, NavLogged, NavAdmin } from "./components/nav";
 import PrivateRoute from "./context/PrivateRoute";
 
+// impport config
+import { API, setAuthToken } from "./config/api";
+
+// init token on axios every time the app is refreshed
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
 function App() {
   // init context
   const [state, dispatch] = useContext(UserContext);
+
+  useEffect(() => {
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
+  }, [state]);
+
+  const checkUser = async () => {
+    try {
+      const response = await API.get("/check-auth");
+
+      if (response.status === 404) {
+        return dispatch({
+          type: "ERROR",
+        });
+      }
+
+      let payload = response.data.data.user;
+      payload.token = localStorage.token;
+
+      if (response.data.data.user.isAdmin === 0) {
+        dispatch({
+          type: "USER",
+          payload,
+        });
+      } else if (response.data.data.user.isAdmin === 1) {
+        dispatch({
+          type: "ADMIN",
+          payload,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    checkUser();
+  }, []);
 
   return (
     <>

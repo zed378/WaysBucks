@@ -47,7 +47,7 @@ const reducer = (state, action) => {
         isPop: false,
       };
 
-    case "SUCCESS":
+    case "ADMIN":
     case "LOGIN_ADMIN":
       localStorage.setItem("token", payload.token);
       return {
@@ -56,6 +56,7 @@ const reducer = (state, action) => {
         user: payload,
       };
 
+    case "USER":
     case "LOGIN_USER":
       localStorage.setItem("token", payload.token);
       return {
@@ -66,6 +67,7 @@ const reducer = (state, action) => {
 
     case "ERROR":
     case "LOGOUT":
+      localStorage.removeItem("token");
       return {
         isLogin: false,
         isAdmin: false,

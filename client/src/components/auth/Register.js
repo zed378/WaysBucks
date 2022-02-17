@@ -14,6 +14,7 @@ function Register(props) {
   const [success, setSuccess] = useState(false);
   const [failed, setFailed] = useState(false);
   const [registered, setRegistered] = useState(false);
+  const [pass, setPass] = useState(false);
 
   // store data
   const [form, setForm] = useState({
@@ -60,6 +61,11 @@ function Register(props) {
         setRegistered(true);
         setTimeout(() => {
           setRegistered(false);
+        }, 4000);
+      } else if (response.data.error.status === "password") {
+        setPass(true);
+        setTimeout(() => {
+          setPass(false);
         }, 4000);
       }
 
@@ -130,13 +136,39 @@ function Register(props) {
           <></>
         )}
 
+        {pass ? (
+          <h3
+            style={{
+              color: "red",
+              background: "#e0cecc",
+              textAlign: "center",
+              padding: "0.5rem 0",
+              fontSize: "1rem",
+              fontFamily: "avenirs",
+            }}
+          >
+            Password min. length is 6 character
+          </h3>
+        ) : (
+          <></>
+        )}
+
         <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            value={name}
+            placeholder="Full Name"
+            onChange={handleChange}
+            required
+          />
           <input
             type="text"
             name="email"
             value={email}
             placeholder="Email"
             onChange={handleChange}
+            required
           />
           <input
             type="password"
@@ -144,13 +176,7 @@ function Register(props) {
             value={password}
             placeholder="Password"
             onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="name"
-            value={name}
-            placeholder="Full Name"
-            onChange={handleChange}
+            required
           />
           <button type="submit">Register</button>
         </form>
