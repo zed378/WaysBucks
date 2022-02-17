@@ -49,6 +49,7 @@ const reducer = (state, action) => {
 
     case "SUCCESS":
     case "LOGIN_ADMIN":
+      localStorage.setItem("token", payload.token);
       return {
         isLogin: true,
         isAdmin: true,
@@ -56,6 +57,7 @@ const reducer = (state, action) => {
       };
 
     case "LOGIN_USER":
+      localStorage.setItem("token", payload.token);
       return {
         isLogin: true,
         isAdmin: false,

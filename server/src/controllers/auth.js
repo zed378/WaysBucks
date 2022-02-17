@@ -49,11 +49,10 @@ exports.register = async (req, res) => {
         password: encryptPass,
       });
     } else {
-      res.status(400).send({
+      return res.send({
         status: "Registered",
         message: "Email Already Registered",
       });
-      return;
     }
 
     // define token data
@@ -110,6 +109,14 @@ exports.login = async (req, res) => {
         email,
       },
     });
+
+    // validate if not registered
+    if (!userExist) {
+      return res.send({
+        status: "404",
+        message: "You're not registered yet",
+      });
+    }
 
     // init var to decrypt password
     const isMatch = await bcrypt.compare(password, userExist.password);

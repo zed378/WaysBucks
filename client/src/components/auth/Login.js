@@ -5,8 +5,15 @@ import { useContext, useState } from "react";
 import cssModules from "../../assets/css/Login.module.css";
 import { UserContext } from "../../context/UserContext";
 
+// import config
+import { API } from "../../config/api";
+
 function Login(props) {
   const { close, regCard } = props;
+
+  // alert
+  const [failed, setFailed] = useState(false);
+  const [registered, setRegistered] = useState(false);
 
   // store data
   const [form, setForm] = useState({
@@ -44,6 +51,41 @@ function Login(props) {
       <div className={cssModules.clickArea} onClick={close}></div>
       <div className={cssModules.loginCard} id="card">
         <h1>Login</h1>
+
+        {failed ? (
+          <h3
+            style={{
+              color: "red",
+              background: "#e0cecc",
+              textAlign: "center",
+              padding: "0.5rem 0",
+              fontSize: "1rem",
+              fontFamily: "avenirs",
+            }}
+          >
+            Password or Email doesn't match
+          </h3>
+        ) : (
+          <></>
+        )}
+
+        {registered ? (
+          <h3
+            style={{
+              color: "red",
+              background: "#e0cecc",
+              textAlign: "center",
+              padding: "0.5rem 0",
+              fontSize: "1rem",
+              fontFamily: "avenirs",
+            }}
+          >
+            You're not registered
+          </h3>
+        ) : (
+          <></>
+        )}
+
         <form onSubmit={handleSubmit}>
           <input
             type="text"

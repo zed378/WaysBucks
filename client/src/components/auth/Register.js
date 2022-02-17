@@ -48,13 +48,19 @@ function Register(props) {
 
       if (response.data.status === "Success") {
         setSuccess(true);
-        setTimeout(setSuccess(false), 4000);
+        setTimeout(() => {
+          setSuccess(false);
+        }, 4000);
       } else if (response.data.status === "Failed") {
         setFailed(true);
-        setTimeout(setFailed(false), 4000);
+        setTimeout(() => {
+          setFailed(false);
+        }, 4000);
       } else if (response.data.status === "Registered") {
         setRegistered(true);
-        setTimeout(setRegistered(false), 4000);
+        setTimeout(() => {
+          setRegistered(false);
+        }, 4000);
       }
 
       setForm({
@@ -81,6 +87,7 @@ function Register(props) {
               textAlign: "center",
               padding: "0.5rem 0",
               fontSize: "1rem",
+              fontFamily: "avenirs",
             }}
           >
             Register Success
@@ -97,6 +104,7 @@ function Register(props) {
               textAlign: "center",
               padding: "0.5rem 0",
               fontSize: "1rem",
+              fontFamily: "avenirs",
             }}
           >
             Register Failed
@@ -113,6 +121,7 @@ function Register(props) {
               textAlign: "center",
               padding: "0.5rem 0",
               fontSize: "1rem",
+              fontFamily: "avenirs",
             }}
           >
             Email Already Registered
