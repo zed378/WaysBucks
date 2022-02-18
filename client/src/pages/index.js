@@ -11,6 +11,10 @@ import Users from "./admin/Users";
 import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
 import PopUp from "../components/card/PopUp";
+import UserEdit from "./admin/edit/UserEdit";
+import ProductEdit from "./admin/edit/ProductEdit";
+import ToppingEdit from "./admin/edit/ToppingEdit";
+import ProfileEdit from "./ProfileEdit";
 
 export {
   Cart,
@@ -26,4 +30,8 @@ export {
   Register,
   Login,
   PopUp,
+  UserEdit,
+  ProductEdit,
+  ToppingEdit,
+  ProfileEdit,
 };

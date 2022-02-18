@@ -19,6 +19,9 @@ import {
   Topping,
   Users,
   PopUp,
+  UserEdit,
+  ProductEdit,
+  ToppingEdit,
 } from "./pages";
 
 // import component
@@ -102,6 +105,9 @@ function App() {
             <Route exact path="/topping" element={<Topping />} />
             <Route exact path="/product-add" element={<ProductAdd />} />
             <Route exact path="/topping-add" element={<ToppingAdd />} />
+            <Route exact path="/user-detil/:id" element={<UserEdit />} />
+            <Route exact path="/product-edit/:id" element={<ProductEdit />} />
+            <Route exact path="/topping-edit/:id" element={<ToppingEdit />} />
           </Route>
         </Routes>
       </Router>

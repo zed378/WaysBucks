@@ -76,7 +76,7 @@ function ToppingAdd() {
       setFail(true);
       setTimeout(() => {
         setFail(false);
-      }, 4000);
+      }, 3000);
     }
   };
 

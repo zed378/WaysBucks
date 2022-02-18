@@ -1,46 +1,32 @@
 // import package
-import { useContext } from "react";
-import { Link } from "react-router-dom";
 import toRupiah from "@develoka/angka-rupiah-js";
+import { Link } from "react-router-dom";
 
 // import assets
-import cssModules from "../../assets/css/ProductCard.module.css";
-import { UserContext } from "../../context/UserContext";
+import cssModules from "../../assets/css/Product.module.css";
 
 function ProductCard({ item, click }) {
-  const [state, dispatch] = useContext(UserContext);
   return (
     <>
-      {state.isAdmin ? (
-        <div className={cssModules.productCard}>
-          <div className={cssModules.productImg}>
-            <img src={item.thumbnail} alt={item.thumbnail} />
-          </div>
-          <div className={cssModules.productDesc}>
-            <h3>{item.title}</h3>
-            <p>{toRupiah(item.price, { formal: false, floatingPoint: 0 })}</p>
-          </div>
-          <div className={cssModules.actionBtn}>
-            <button className={cssModules.editBtn}>Edit</button>
-            <button className={cssModules.delBtn}>Delete</button>
-          </div>
+      <Link
+        to={`/detail-product/` + item.id}
+        style={{ textDecoration: "none" }}
+        onClick={click}
+        className={cssModules.productCard}
+      >
+        <div className={cssModules.productImg}>
+          <img src={item.thumbnail} alt={item.thumbnail} />
         </div>
-      ) : (
-        <Link
-          to={`/detail-product/` + item.id}
-          style={{ textDecoration: "none" }}
-          onClick={click}
-          className={cssModules.productCard}
-        >
-          <div className={cssModules.productImg}>
-            <img src={item.thumbnail} alt={item.thumbnail} />
-          </div>
-          <div className={cssModules.productDesc}>
-            <h3>{item.title}</h3>
-            <p>{toRupiah(item.price, { formal: false, floatingPoint: 0 })}</p>
-          </div>
-        </Link>
-      )}
+        <div className={cssModules.productDesc}>
+          <h3>{item.title}</h3>
+          <p>
+            {toRupiah(item.price, {
+              formal: false,
+              floatingPoint: 0,
+            })}
+          </p>
+        </div>
+      </Link>
     </>
   );
 }

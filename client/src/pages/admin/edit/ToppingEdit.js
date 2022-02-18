@@ -1,15 +1,36 @@
 // import package
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 // import assets
-import cssModules from "../../assets/css/ProductAdd.module.css";
-import clip from "../../assets/img/clip.svg";
+import cssModules from "../../../assets/css/ToppingAdd.module.css";
+import clip from "../../../assets/img/clip.svg";
 
 // import config
-import { API } from "../../config/api";
+import { API } from "../../../config/api";
 
-function ProductAdd() {
+function ToppingEdit() {
+  const { id } = useParams();
+
+  const [topping, setTopping] = useState([]);
+
+  const getProduct = async () => {
+    try {
+      const response = await API.get(`/topping/${id}`);
+
+      setPreview(response.data.data.thumbnail);
+      setForm({
+        ...form,
+        title: response.data.data.title,
+        price: response.data.data.price,
+      });
+
+      setTopping(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const navigate = useNavigate();
   const pic = () => {
     document.getElementById("pic").click();
@@ -58,13 +79,17 @@ function ProductAdd() {
       formData.set("price", form.price);
       formData.set("thumbnail", form.thumbnail[0], form.thumbnail[0].name);
 
-      const response = await API.post("/product", formData, config);
+      const response = await API.patch(
+        "/topping/" + topping.id,
+        formData,
+        config
+      );
 
       if (response.data.status === "Success") {
         setSuccess(true);
         setTimeout(() => {
           setSuccess(false);
-          navigate("/product");
+          navigate("/topping");
         }, 3000);
       } else if (response.data.status === "Failed") {
         setFail(true);
@@ -76,15 +101,19 @@ function ProductAdd() {
       setFail(true);
       setTimeout(() => {
         setFail(false);
-      }, 3000);
+      }, 4000);
     }
   };
 
+  useEffect(() => {
+    getProduct();
+  }, []);
+
   return (
     <>
-      <div className={cssModules.bodyProduct}>
+      <div className={cssModules.bodyTopping}>
         <div className={cssModules.formContainer}>
-          <h1>Add Product</h1>
+          <h1>Edit Topping</h1>
 
           {success ? (
             <h3
@@ -97,7 +126,7 @@ function ProductAdd() {
                 fontFamily: "avenirs",
               }}
             >
-              Add Product Success
+              Edit Topping Success
             </h3>
           ) : (
             <></>
@@ -114,7 +143,7 @@ function ProductAdd() {
                 fontFamily: "avenirs",
               }}
             >
-              Add Product Failed
+              Edit Topping Failed
             </h3>
           ) : (
             <></>
@@ -124,7 +153,8 @@ function ProductAdd() {
             <input
               type="text"
               name="title"
-              placeholder="Product Name"
+              placeholder="Topping Name"
+              value={form.title}
               onChange={handleChange}
               required
             />
@@ -132,6 +162,7 @@ function ProductAdd() {
               type="number"
               name="price"
               placeholder="Price"
+              value={form.price}
               onChange={handleChange}
               required
             />
@@ -139,16 +170,16 @@ function ProductAdd() {
               type="file"
               id="pic"
               name="thumbnail"
-              placeholder="Photo Product"
+              placeholder="Photo Topping"
               hidden
               onChange={handleChange}
             />
             <div className={cssModules.addPic} onClick={pic}>
-              <p>Product Photo</p>
+              <p>Topping Photo</p>
               <img src={clip} alt="Clip" />
             </div>
             <br />
-            <button type="submit">Add Product</button>
+            <button type="submit">Save</button>
           </form>
         </div>
         <div className={cssModules.imgPreview}>
@@ -170,4 +201,4 @@ function ProductAdd() {
   );
 }
 
-export default ProductAdd;
+export default ToppingEdit;

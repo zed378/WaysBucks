@@ -1,15 +1,38 @@
 // import package
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 // import assets
-import cssModules from "../../assets/css/ProductAdd.module.css";
-import clip from "../../assets/img/clip.svg";
+import cssModules from "../../../assets/css/ProductAdd.module.css";
+import clip from "../../../assets/img/clip.svg";
 
 // import config
-import { API } from "../../config/api";
+import { API } from "../../../config/api";
 
-function ProductAdd() {
+function ProductEdit() {
+  const { id } = useParams();
+
+  const [product, setProduct] = useState([]);
+
+  const getProduct = async () => {
+    try {
+      const response = await API.get(`/product/${id}`);
+
+      setPreview(response.data.data.thumbnail);
+      setForm({
+        ...form,
+        title: response.data.data.title,
+        price: response.data.data.price,
+      });
+
+      setProduct(response.data.data);
+
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const navigate = useNavigate();
   const pic = () => {
     document.getElementById("pic").click();
@@ -58,7 +81,11 @@ function ProductAdd() {
       formData.set("price", form.price);
       formData.set("thumbnail", form.thumbnail[0], form.thumbnail[0].name);
 
-      const response = await API.post("/product", formData, config);
+      const response = await API.patch(
+        "/product/" + product.id,
+        formData,
+        config
+      );
 
       if (response.data.status === "Success") {
         setSuccess(true);
@@ -76,15 +103,19 @@ function ProductAdd() {
       setFail(true);
       setTimeout(() => {
         setFail(false);
-      }, 3000);
+      }, 4000);
     }
   };
+
+  useEffect(() => {
+    getProduct();
+  }, []);
 
   return (
     <>
       <div className={cssModules.bodyProduct}>
         <div className={cssModules.formContainer}>
-          <h1>Add Product</h1>
+          <h1>Edit Product</h1>
 
           {success ? (
             <h3
@@ -97,7 +128,7 @@ function ProductAdd() {
                 fontFamily: "avenirs",
               }}
             >
-              Add Product Success
+              Edit Product Success
             </h3>
           ) : (
             <></>
@@ -114,7 +145,7 @@ function ProductAdd() {
                 fontFamily: "avenirs",
               }}
             >
-              Add Product Failed
+              Edit Product Failed
             </h3>
           ) : (
             <></>
@@ -125,6 +156,7 @@ function ProductAdd() {
               type="text"
               name="title"
               placeholder="Product Name"
+              value={form.title}
               onChange={handleChange}
               required
             />
@@ -132,6 +164,7 @@ function ProductAdd() {
               type="number"
               name="price"
               placeholder="Price"
+              value={form.price}
               onChange={handleChange}
               required
             />
@@ -148,7 +181,7 @@ function ProductAdd() {
               <img src={clip} alt="Clip" />
             </div>
             <br />
-            <button type="submit">Add Product</button>
+            <button type="submit">Save</button>
           </form>
         </div>
         <div className={cssModules.imgPreview}>
@@ -170,4 +203,4 @@ function ProductAdd() {
   );
 }
 
-export default ProductAdd;
+export default ProductEdit;
