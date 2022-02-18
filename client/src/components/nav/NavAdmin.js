@@ -31,6 +31,7 @@ function NavAdmin() {
   useEffect(() => {
     getUser();
   }, []);
+
   let navigate = useNavigate();
 
   return (

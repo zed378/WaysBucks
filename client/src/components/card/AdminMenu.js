@@ -6,6 +6,8 @@ import { useContext } from "react";
 import income from "../../assets/img/income.svg";
 import product from "../../assets/img/product.svg";
 import topping from "../../assets/img/topping.svg";
+import userLogo from "../../assets/img/user.svg";
+import admin from "../../assets/img/admin.svg";
 import logout from "../../assets/img/logout.svg";
 import triangle from "../../assets/img/triangle.svg";
 import cssModules from "../../assets/css/AdminMenu.module.css";
@@ -29,7 +31,26 @@ function AdminMenu(props) {
     <>
       <div className={cssModules.dropWrapper} onClick={close}></div>
       <div className={cssModules.dropdown}>
+        <div
+          className={cssModules.menuOption}
+          onClick={() => navigate("/profile")}
+        >
+          <div>
+            <img src={admin} alt="Income" />
+          </div>
+          <p>Profile</p>
+        </div>
         <img src={triangle} alt="triangle" className={cssModules.triangle} />
+        <div
+          className={cssModules.menuOption}
+          onClick={() => navigate("/customers")}
+        >
+          <div>
+            <img src={userLogo} alt="Customers" />
+          </div>
+          <p>Customers</p>
+        </div>
+        <hr />
         <div
           className={cssModules.menuOption}
           onClick={() => navigate("/income")}

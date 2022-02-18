@@ -17,6 +17,7 @@ import {
   ToppingAdd,
   Product,
   Topping,
+  Users,
   PopUp,
 } from "./pages";
 
@@ -95,6 +96,7 @@ function App() {
               element={<DetailProduct />}
             />
             <Route exact path="/profile" element={<Profile />} />
+            <Route exact path="/customers" element={<Users />} />
             <Route exact path="/income" element={<Income />} />
             <Route exact path="/product" element={<Product />} />
             <Route exact path="/topping" element={<Topping />} />
