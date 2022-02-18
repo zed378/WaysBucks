@@ -3,6 +3,7 @@ const { user } = require("../../models");
 exports.getUsers = async (req, res) => {
   try {
     let users = await user.findAll({
+      where: { isAdmin: 0 },
       attributes: {
         exclude: ["password", "createdAt", "updatedAt"],
       },
@@ -36,7 +37,7 @@ exports.getUser = async (req, res) => {
     let find = await user.findOne({
       where: { id },
       attributes: {
-        exclude: ["password", "createdAt", "updatedAt"],
+        exclude: ["password", "updatedAt"],
       },
     });
 
@@ -67,6 +68,27 @@ exports.editUser = async (req, res) => {
     res.send({
       status: "Success",
       data,
+    });
+  } catch (error) {
+    res.send({
+      status: "Failed",
+      message: "Server Error",
+    });
+  }
+};
+
+exports.promoteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = {
+      isAdmin: 1,
+    };
+
+    await user.update(data, { where: { id } });
+
+    res.send({
+      status: "Success",
+      message: "Promote Success",
     });
   } catch (error) {
     res.send({

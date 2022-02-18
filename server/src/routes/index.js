@@ -10,6 +10,7 @@ const {
   getUsers,
   getUser,
   editUser,
+  promoteUser,
   deleteUser,
 } = require("../controllers/user");
 
@@ -57,6 +58,7 @@ router.get("/check-auth", auth, checkAuth);
 router.get("/users", getUsers);
 router.get("/user/:id", getUser);
 router.patch("/user/:id", auth, profileImg("photo"), editUser);
+router.patch("/promote/:id", auth, promoteUser);
 router.delete("/user/:id", auth, deleteUser);
 
 // define product routes
