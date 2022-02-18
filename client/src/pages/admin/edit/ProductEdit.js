@@ -11,6 +11,17 @@ import { API } from "../../../config/api";
 
 function ProductEdit() {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const pic = () => {
+    document.getElementById("pic").click();
+  };
+
+  // store data
+  const [form, setForm] = useState({
+    title: "",
+    price: "",
+    thumbnail: "",
+  });
 
   const [product, setProduct] = useState([]);
 
@@ -26,28 +37,14 @@ function ProductEdit() {
       });
 
       setProduct(response.data.data);
-
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const navigate = useNavigate();
-  const pic = () => {
-    document.getElementById("pic").click();
-  };
-
   // alert
   const [success, setSuccess] = useState(false);
   const [fail, setFail] = useState(false);
-
-  // store data
-  const [form, setForm] = useState({
-    title: "",
-    price: "",
-    thumbnail: "",
-  });
 
   // set preview image
   const [preview, setPreview] = useState(null);

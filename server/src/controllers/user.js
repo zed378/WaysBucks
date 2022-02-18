@@ -1,4 +1,9 @@
+// import model
 const { user } = require("../../models");
+
+// import package
+const fs = require("fs");
+const path = require("path");
 
 exports.getUsers = async (req, res) => {
   try {
@@ -59,11 +64,26 @@ exports.editUser = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const data = req.body;
+    const data = {
+      name: req.body.name,
+      photo: req.file.filename,
+    };
 
-    await user.update(data, {
+    let checkUser = await user.findOne({
       where: { id },
     });
+
+    if (!checkUser) {
+      return res.send({
+        message: "Failed to delete",
+      });
+    } else {
+      delImg(checkUser.photo);
+
+      await user.update(data, {
+        where: { id },
+      });
+    }
 
     res.send({
       status: "Success",
@@ -102,9 +122,21 @@ exports.deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
 
-    await user.destroy({
+    let checkUser = await user.findOne({
       where: { id },
     });
+
+    if (!checkUser) {
+      return res.send({
+        message: "Failed to delete",
+      });
+    } else {
+      delImg(checkUser.photo);
+
+      await user.destroy({
+        where: { id },
+      });
+    }
 
     res.send({
       status: "Success",
@@ -114,6 +146,16 @@ exports.deleteUser = async (req, res) => {
     res.send({
       status: "Failed",
       message: "Server Error",
+    });
+  }
+};
+
+const delImg = (filePath) => {
+  if (filePath !== "default.svg") {
+    filePath = path.join(__dirname, "../../uploads/profile/", filePath);
+
+    fs.unlink(filePath, (err) => {
+      if (err) throw err;
     });
   }
 };
