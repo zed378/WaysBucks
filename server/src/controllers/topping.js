@@ -140,6 +140,25 @@ exports.editTopping = async (req, res) => {
   }
 };
 
+exports.setClick = async (req, res) => {
+  try {
+    const { idTop, click } = req.params;
+    await topping.update(
+      {
+        isClick: click,
+      },
+      {
+        where: { id: idTop },
+      }
+    );
+  } catch (error) {
+    res.send({
+      status: "Failed",
+      message: "Server Error",
+    });
+  }
+};
+
 exports.deleteTopping = async (req, res) => {
   try {
     const { id } = req.params;

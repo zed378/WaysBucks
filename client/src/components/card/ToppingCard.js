@@ -2,16 +2,20 @@
 import toRupiah from "@develoka/angka-rupiah-js";
 
 // import assets
-import cssModules from "../../assets/css/Topping.module.css";
+import check from "../../assets/img/check.svg";
+import cssModules from "../../assets/css/DetailProduct.module.css";
 
-function ToppingCard({ item }) {
+function ToppingCard({ item, check }) {
   return (
-    <div className={cssModules.topCard}>
-      <div className={cssModules.topImg}>
-        <img src={item.thumbnail} alt="Topping" />
-      </div>
-      <div className={cssModules.topDesc}>
-        <h3>{item.title}</h3>
+    <div className={cssModules.toppingMenu} onClick={check}>
+      {item.isClick === 1 ? (
+        <img src={check} alt="isChecked" className={cssModules.isChecked} />
+      ) : (
+        <></>
+      )}
+      <img src={item.thumbnail} alt="Bubble Tea Gelatin" />
+      <div>
+        <p>{item.title}</p>
         <p>{toRupiah(item.price, { formal: false, floatingPoint: 0 })}</p>
       </div>
     </div>

@@ -89,7 +89,7 @@ function ProductEdit() {
         setTimeout(() => {
           setSuccess(false);
           navigate("/product");
-        }, 3000);
+        }, 1500);
       } else if (response.data.status === "Failed") {
         setFail(true);
         setTimeout(() => {

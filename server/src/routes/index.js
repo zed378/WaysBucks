@@ -29,6 +29,7 @@ const {
   getTopping,
   addTopping,
   editTopping,
+  setClick,
   deleteTopping,
 } = require("../controllers/topping");
 
@@ -73,6 +74,7 @@ router.get("/toppings", getToppings);
 router.get("/topping/:id", auth, getTopping);
 router.post("/topping", auth, toppingImg("thumbnail"), addTopping);
 router.patch("/topping/:id", auth, toppingImg("thumbnail"), editTopping);
+router.patch("/setClick/:idTop/:click", auth, setClick);
 router.delete("/topping/:id", auth, deleteTopping);
 
 // define transaction routes

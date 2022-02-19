@@ -65,7 +65,7 @@ function ToppingAdd() {
         setTimeout(() => {
           setSuccess(false);
           navigate("/topping");
-        }, 3000);
+        }, 1500);
       } else if (response.data.status === "Failed") {
         setFail(true);
         setTimeout(() => {
