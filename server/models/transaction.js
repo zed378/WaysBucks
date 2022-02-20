@@ -13,6 +13,13 @@ module.exports = (sequelize, DataTypes) => {
         as: "user",
         foreignKey: "userId",
       });
+
+      transaction.belongsTo(models.product, {
+        as: "product",
+        foreignKey: {
+          name: "productId",
+        },
+      });
     }
   }
   transaction.init(
