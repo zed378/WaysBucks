@@ -88,6 +88,10 @@
   width: 40%;
 }
 
+.desc > h2 {
+  color: red;
+}
+
 .detilContainer > button {
   width: 100%;
   border: none;

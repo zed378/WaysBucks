@@ -82,7 +82,9 @@ function DetailProduct() {
 
         <div className={cssModules.topping}>
           <h1>{product.title}</h1>
-          <p>{product.price}</p>
+          <div>
+            <p>{product.price}</p>
+          </div>
           <br />
           <h2>Topping</h2>
           <div className={cssModules.menuWrapper}>

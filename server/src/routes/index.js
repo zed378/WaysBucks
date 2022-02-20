@@ -35,9 +35,12 @@ const {
 
 // import transaction controller
 const {
-  // getTransactions,
-  // getTransaction,
-  // addTransaction,
+  getTransactions,
+  getTransaction,
+  addTransaction,
+  editTransaction,
+  deleteTransaction,
+  getUserTransactions,
 } = require("../controllers/transaction");
 
 // import middleware
@@ -77,9 +80,11 @@ router.patch("/setClick/:idTop/:click", auth, setClick);
 router.delete("/topping/:id", auth, deleteTopping);
 
 // define transaction routes
-// router.get("/transactions", auth, getTransactions);
-// router.get("/transaction/:id", auth, getTransaction);
-// router.post("/transaction/:prodId", auth, addTransaction);
-// router.post("/order", auth, addOrder);
+router.get("/transactions", auth, getTransactions);
+router.get("/transaction/:id", auth, getTransaction);
+router.post("/transaction/:prodId/:topId/:qty/:total", auth, addTransaction);
+router.patch("/transaction/:id/:status", auth, editTransaction);
+router.delete("/transaction/:id", auth, deleteTransaction);
+router.get("/user-transaction/:userId", auth, getUserTransactions);
 
 module.exports = router;

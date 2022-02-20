@@ -14,12 +14,8 @@ function UserCard({ item }) {
           <img src={item.photo} alt="" />
         </div>
 
-        <div className={cssModules.desc}>
-          <h2>Name</h2>
-          <p>{item.name}</p>
-          <h2>Email</h2>
-          <p>{item.email}</p>
-        </div>
+        <p>{item.name}</p>
+
         <button onClick={() => navigate(`/user-detil/${item.id}`)}>
           See Detail
         </button>

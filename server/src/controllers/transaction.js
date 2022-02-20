@@ -1,32 +1,9 @@
 // import model
-const { transaction, user, order } = require("../../models");
+const { transaction, user, product, topping } = require("../../models");
 
 exports.getTransactions = async (req, res) => {
   try {
     let data = await transaction.findAll({
-      include: {
-        model: user,
-        as: "user",
-        attributes: {
-          exclude: [
-            "id",
-            "password",
-            "isAdmin",
-            "photo",
-            "createdAt",
-            "updatedAt",
-          ],
-        },
-      },
-
-      include: {
-        model: order,
-        as: "order",
-        attributes: {
-          exclude: ["createdAt", "updatedAt"],
-        },
-      },
-
       attributes: {
         exclude: ["createdAt", "UpdatedAt"],
       },
@@ -51,31 +28,6 @@ exports.getTransaction = async (req, res) => {
     let data = await transaction.findOne({
       where: { id },
 
-      include: [
-        {
-          model: user,
-          as: "user",
-          attributes: {
-            exclude: [
-              "id",
-              "password",
-              "isAdmin",
-              "photo",
-              "createdAt",
-              "updatedAt",
-            ],
-          },
-        },
-
-        {
-          model: order,
-          as: "order",
-          attributes: {
-            exclude: ["createdAt", "updatedAt"],
-          },
-        },
-      ],
-
       attributes: {
         exclude: ["createdAt", "UpdatedAt"],
       },
@@ -95,14 +47,14 @@ exports.getTransaction = async (req, res) => {
 
 exports.addTransaction = async (req, res) => {
   try {
-    const { prodId } = req.params;
+    const { prodId, topId, qty, total } = req.params;
 
     const data = {
       userId: req.user.id,
       productId: prodId,
-      toppingId: req.body.topping,
-      total: req.body.total,
-      qty: req.body.qty,
+      toppingId: topId,
+      total: total,
+      qty: qty,
     };
 
     await transaction.create(data);
@@ -119,8 +71,52 @@ exports.addTransaction = async (req, res) => {
   }
 };
 
-exports.getUserTransaction = async (req, res) => {
+exports.editTransaction = async (req, res) => {
   try {
+    const { id, status } = req.params;
+
+    await transaction.update({ status }, { where: { id } });
+
+    res.send({
+      status: "Success",
+      message: "Update Success",
+    });
+  } catch (error) {
+    res.send({
+      status: "Failed",
+      message: "Server Error",
+    });
+  }
+};
+
+exports.deleteTransaction = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    await transaction.destroy({ where: { id } });
+
+    res.send({
+      status: "Success",
+      message: "Delete Success",
+    });
+  } catch (error) {
+    res.send({
+      status: "Failed",
+      message: "Server error",
+    });
+  }
+};
+
+exports.getUserTransactions = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const data = await transaction.findAll({ where: { userId } });
+
+    res.send({
+      status: "Success",
+      data,
+    });
   } catch (error) {
     res.send({
       status: "Failed",
