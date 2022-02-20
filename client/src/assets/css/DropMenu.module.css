@@ -42,6 +42,10 @@ hr {
   cursor: pointer;
 }
 
+.menuOption:hover {
+  background: rgb(255, 185, 185);
+}
+
 .menuOption > p {
   font-size: 1.5rem;
   font-weight: 900;

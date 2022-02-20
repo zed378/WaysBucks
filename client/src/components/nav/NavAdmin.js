@@ -22,6 +22,7 @@ function NavAdmin() {
   const getUser = async () => {
     try {
       const response = await API.get(`/user/${state.user.id}`);
+
       setUser(response.data.data);
     } catch (error) {
       console.log(error);

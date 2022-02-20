@@ -41,13 +41,7 @@ exports.getUser = async (req, res) => {
 
     let find = await user.findOne({
       where: { id },
-      include: {
-        model: transaction,
-        as: "transaction",
-        attributes: {
-          exclude: ["updateAt"],
-        },
-      },
+
       attributes: {
         exclude: ["password", "updatedAt"],
       },
