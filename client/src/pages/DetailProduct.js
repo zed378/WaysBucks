@@ -16,25 +16,29 @@ function DetailProduct() {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  const [quantity, setQuantity] = useState(1);
+  const [top, setTop] = useState(null);
+  const [topPrice, setTopPrice] = useState(null);
   const [product, setProduct] = useState([]);
   const [toppings, setToppings] = useState([]);
-  const [total, setTotal] = useState(null);
+  const [total, setTotal] = useState(0);
 
   const getProduct = async () => {
     try {
       const res = await API.get("/product/" + id);
 
       setProduct({
+        id: res.data.data.id,
         title: res.data.data.title,
         thumbnail: res.data.data.thumbnail,
         price: toRupiah(res.data.data.price, {
           formal: false,
           floatingPoint: 0,
         }),
+        prices: res.data.data.price,
       });
-      setTotal(
-        toRupiah(res.data.data.price, { formal: false, floatingPoint: 0 })
-      );
+
+      setTotal(res.data.data.price);
     } catch (error) {
       console.log(error);
     }
@@ -54,11 +58,9 @@ function DetailProduct() {
     try {
       if (isClick === 0) {
         await API.patch(`/setClick/${idTop}/1`);
-
         getToppings();
       } else if (isClick === 1) {
         await API.patch(`/setClick/${idTop}/0`);
-
         getToppings();
       }
     } catch (error) {
@@ -66,12 +68,59 @@ function DetailProduct() {
     }
   };
 
+  const addTransaction = async () => {
+    try {
+      await API.post(`/transaction/${product.id}/${top}/${quantity}/${total}`);
+
+      navigate("/");
+      document.location.reload(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const incre = () => {
+    setQuantity(quantity + 1);
+
+    const value = product.prices + topPrice;
+    const multiply = value * quantity;
+    setTotal(multiply);
+  };
+
+  const decre = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+
+      const value = product.prices + topPrice;
+      const multiply = value * quantity;
+      setTotal(multiply);
+    } else {
+      const value = product.prices + topPrice;
+      const multiply = value * quantity;
+      setTotal(multiply);
+    }
+  };
+
+  const allPrice = (itemPrice, itemID) => {
+    setTop(itemID);
+    setTopPrice(itemPrice);
+
+    setTotal(product.prices + topPrice);
+
+    console.log(`total ${total}`);
+    console.log(`top ${top}`);
+    console.log(`topPrice ${topPrice}`);
+    console.log(`product.prices ${product.prices}`);
+    console.log(`product.id ${product.id}`);
+    console.log(`quantity ${quantity}`);
+  };
+
   useEffect(() => {
     getProduct();
     getToppings();
   }, []);
 
-  useEffect(getToppings);
+  // useEffect(getToppings);
 
   return (
     <>
@@ -82,17 +131,29 @@ function DetailProduct() {
 
         <div className={cssModules.topping}>
           <h1>{product.title}</h1>
-          <div>
+          <div className={cssModules.setPrice}>
             <p>{product.price}</p>
+            <div className={cssModules.qtySet}>
+              <p>Qty</p>
+              <p className={cssModules.counterSet} onClick={decre}>
+                -
+              </p>
+              <p className={cssModules.count}>{quantity}</p>
+              <p className={cssModules.counterSet} onClick={incre}>
+                +
+              </p>
+            </div>
           </div>
           <br />
           <h2>Topping</h2>
           <div className={cssModules.menuWrapper}>
             {toppings?.map((item) => (
               <div
-                id="topp"
                 className={cssModules.toppingMenu}
-                onClick={() => checked(item.id, item.isClick)}
+                onClick={() => {
+                  checked(item.id, item.isClick, item.price);
+                  allPrice(item.price, item.id);
+                }}
               >
                 {item.isClick === 1 ? (
                   <img
@@ -116,9 +177,9 @@ function DetailProduct() {
           <br />
           <div className={cssModules.totalPrice}>
             <h2>Total</h2>
-            <h3>{total}</h3>
+            <h3>{toRupiah(total, { formal: false, floatingPoint: 0 })}</h3>
           </div>
-          <button onClick={() => navigate("/cart")}>Add Cart</button>
+          <button onClick={() => addTransaction()}>Add Cart</button>
         </div>
       </div>
     </>

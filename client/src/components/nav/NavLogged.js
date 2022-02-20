@@ -18,6 +18,7 @@ function NavLogged() {
   // define state
   const [dropModal, setDropModal] = useState(false);
   const [user, setUser] = useState([]);
+  const [transaction, setTransaction] = useState([]);
   const [state, dispatch] = useContext(UserContext);
 
   const getUser = async () => {
@@ -29,8 +30,19 @@ function NavLogged() {
     }
   };
 
+  const getTransaction = async () => {
+    try {
+      const response = await API.get(`/basket/${state.user.id}`);
+
+      setTransaction(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getUser();
+    getTransaction();
   }, []);
 
   let navigate = useNavigate();
@@ -44,12 +56,21 @@ function NavLogged() {
       <div className={cssModules.navContainer}>
         <img src={logo} alt="Logo" onClick={() => navigate("/")} />
         <div className={cssModules.profileWrapper}>
-          <img
-            src={basket}
-            alt="basket"
-            className={cssModules.basketImg}
-            onClick={() => navigate("/cart")}
-          />
+          <div className={cssModules.pos}>
+            <div className={cssModules.bask}>
+              {transaction.length !== 0 ? (
+                <p className={cssModules.stuff}>{transaction.length}</p>
+              ) : (
+                <></>
+              )}
+            </div>
+            <img
+              src={basket}
+              alt="basket"
+              className={cssModules.basketImg}
+              onClick={() => navigate("/cart")}
+            />
+          </div>
           <div
             className={cssModules.imgWrapper}
             onClick={() => setDropModal(true)}

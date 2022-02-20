@@ -19,6 +19,29 @@
   gap: 50px;
 }
 
+.bask {
+  position: absolute;
+  top: 90px;
+  right: 275px;
+}
+
+.stuff {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  background: #bd0707;
+  color: white;
+  font-size: 0.85rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
 .basketImg {
   height: 50px;
   cursor: pointer;
@@ -62,6 +85,29 @@
     display: flex;
     align-items: center;
     gap: 40px;
+  }
+
+  .bask {
+    position: absolute;
+    top: 55px;
+    right: 165px;
+  }
+
+  .stuff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    background: #bd0707;
+    color: white;
+    font-size: 0.85rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
   }
 
   .basketImg {
@@ -110,6 +156,35 @@
     gap: 30px;
   }
 
+  .profileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .bask {
+    position: absolute;
+    top: 55px;
+    right: 145px;
+  }
+
+  .stuff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    background: #bd0707;
+    color: white;
+    font-size: 0.85rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+
   .basketImg {
     height: 50px;
     cursor: pointer;
@@ -154,6 +229,29 @@
     display: flex;
     align-items: center;
     gap: 30px;
+  }
+
+  .bask {
+    position: absolute;
+    top: 50px;
+    right: 155px;
+  }
+
+  .stuff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    background: #bd0707;
+    color: white;
+    font-size: 0.85rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
   }
 
   .basketImg {
@@ -202,6 +300,29 @@
     gap: 25px;
   }
 
+  .bask {
+    position: absolute;
+    top: 45px;
+    right: 120px;
+  }
+
+  .stuff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    background: #bd0707;
+    color: white;
+    font-size: 0.75rem;
+    width: 17.5px;
+    height: 17.5px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+
   .basketImg {
     height: 40px;
     cursor: pointer;
@@ -246,6 +367,29 @@
     display: flex;
     align-items: center;
     gap: 25px;
+  }
+
+  .bask {
+    position: absolute;
+    top: 40px;
+    right: 120px;
+  }
+
+  .stuff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    background: #bd0707;
+    color: white;
+    font-size: 0.75rem;
+    width: 17.5px;
+    height: 17.5px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
   }
 
   .basketImg {
@@ -294,6 +438,29 @@
     gap: 25px;
   }
 
+  .bask {
+    position: absolute;
+    top: 40px;
+    right: 100px;
+  }
+
+  .stuff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    background: #bd0707;
+    color: white;
+    font-size: 0.75rem;
+    width: 17.5px;
+    height: 17.5px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+
   .basketImg {
     height: 35px;
     cursor: pointer;
@@ -340,6 +507,29 @@
     gap: 25px;
   }
 
+  .bask {
+    position: absolute;
+    top: 40px;
+    right: 100px;
+  }
+
+  .stuff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    background: #bd0707;
+    color: white;
+    font-size: 0.65rem;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+
   .basketImg {
     height: 35px;
     cursor: pointer;
@@ -384,6 +574,29 @@
     display: flex;
     align-items: center;
     gap: 20px;
+  }
+
+  .bask {
+    position: absolute;
+    top: 30px;
+    right: 95px;
+  }
+
+  .stuff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    background: #bd0707;
+    color: white;
+    font-size: 0.65rem;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
   }
 
   .basketImg {

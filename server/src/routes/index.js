@@ -41,6 +41,7 @@ const {
   editTransaction,
   deleteTransaction,
   getUserTransactions,
+  basket,
 } = require("../controllers/transaction");
 
 // import middleware
@@ -86,5 +87,6 @@ router.post("/transaction/:prodId/:topId/:qty/:total", auth, addTransaction);
 router.patch("/transaction/:id/:status", auth, editTransaction);
 router.delete("/transaction/:id", auth, deleteTransaction);
 router.get("/user-transaction/:userId", auth, getUserTransactions);
+router.get("/basket/:userId", auth, basket);
 
 module.exports = router;

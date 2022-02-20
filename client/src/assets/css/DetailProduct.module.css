@@ -26,6 +26,30 @@
   object-position: 50%;
 }
 
+.setPrice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.qtySet {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.counterSet {
+  width: 30px;
+  height: 30px;
+  color: white;
+  background: #bd0707;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: avenir;
+  cursor: pointer;
+}
+
 .topping {
   width: 60%;
 }
@@ -73,7 +97,7 @@
 
 .toppingMenu > img {
   width: 50%;
-  height: 90px;
+  height: auto;
   object-fit: cover;
   object-position: 50%;
 }
@@ -202,7 +226,7 @@
 
   .toppingMenu > img {
     width: 50%;
-    height: 90px;
+    height: auto;
     object-fit: cover;
     object-position: 50%;
   }
@@ -328,7 +352,7 @@
 
   .toppingMenu > img {
     width: 50%;
-    height: 85px;
+    height: auto;
     object-fit: cover;
     object-position: 50%;
   }
@@ -455,7 +479,7 @@
 
   .toppingMenu > img {
     width: 50%;
-    height: 70px;
+    height: auto;
     object-fit: cover;
     object-position: 50%;
   }
@@ -582,7 +606,7 @@
 
   .toppingMenu > img {
     width: 50%;
-    height: 65px;
+    height: auto;
     object-fit: cover;
     object-position: 50%;
   }
@@ -717,7 +741,7 @@
 
   .toppingMenu > img {
     width: 50%;
-    height: 80px;
+    height: auto;
     object-fit: cover;
     object-position: 50%;
   }
@@ -852,7 +876,7 @@
 
   .toppingMenu > img {
     width: 50%;
-    height: 65px;
+    height: auto;
     object-fit: cover;
     object-position: 50%;
   }
@@ -987,7 +1011,7 @@
 
   .toppingMenu > img {
     width: 50%;
-    height: 65px;
+    height: auto;
     object-fit: cover;
     object-position: 50%;
   }
@@ -1122,7 +1146,7 @@
 
   .toppingMenu > img {
     width: 50%;
-    height: 50px;
+    height: auto;
     object-fit: cover;
     object-position: 50%;
   }

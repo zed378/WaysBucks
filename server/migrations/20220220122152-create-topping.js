@@ -23,6 +23,10 @@ module.exports = {
       price: {
         type: Sequelize.INTEGER,
       },
+      isClick: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+      },
       thumbnail: {
         type: Sequelize.STRING,
       },

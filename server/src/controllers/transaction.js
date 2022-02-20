@@ -124,3 +124,26 @@ exports.getUserTransactions = async (req, res) => {
     });
   }
 };
+
+exports.basket = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const data = await transaction.findAll({
+      where: {
+        userId,
+        status: "pending" || "otw",
+      },
+    });
+
+    res.send({
+      status: "Success",
+      data,
+    });
+  } catch (error) {
+    res.send({
+      status: "Failed",
+      message: "Server Error",
+    });
+  }
+};
