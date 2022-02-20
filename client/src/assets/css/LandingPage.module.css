@@ -138,6 +138,17 @@ p {
   font-weight: 900;
 }
 
+.noData {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.noData > img {
+  width: 70%;
+  height: auto;
+}
+
 @media only screen and (max-width: 1440px) {
   .landingBody {
     box-sizing: border-box;
@@ -274,6 +285,17 @@ p {
     font-family: avenirs;
     font-size: 1rem;
     font-weight: 900;
+  }
+
+  .noData {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .noData > img {
+    width: 60%;
+    height: auto;
   }
 }
 
@@ -414,6 +436,17 @@ p {
     font-size: 1rem;
     font-weight: 900;
   }
+
+  .noData {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .noData > img {
+    width: 50%;
+    height: auto;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -551,6 +584,17 @@ p {
     font-family: avenirs;
     font-size: 1rem;
     font-weight: 900;
+  }
+
+  .noData {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .noData > img {
+    width: 70%;
+    height: auto;
   }
 }
 
@@ -695,6 +739,17 @@ p {
     font-family: avenirs;
     font-size: 1.25rem;
     font-weight: 900;
+  }
+
+  .noData {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .noData > img {
+    width: 70%;
+    height: auto;
   }
 }
 
@@ -842,6 +897,17 @@ p {
     font-size: 1rem;
     font-weight: 900;
   }
+
+  .noData {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .noData > img {
+    width: 80%;
+    height: auto;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -987,6 +1053,17 @@ p {
     font-family: avenirs;
     font-size: 1rem;
     font-weight: 900;
+  }
+
+  .noData {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .noData > img {
+    width: 70%;
+    height: auto;
   }
 }
 
@@ -1135,6 +1212,17 @@ p {
     font-family: avenirs;
     font-size: 1rem;
     font-weight: 900;
+  }
+
+  .noData {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .noData > img {
+    width: 90%;
+    height: auto;
   }
 }
 

@@ -7,6 +7,7 @@ import toRupiah from "@develoka/angka-rupiah-js";
 
 // import assets
 import product from "../../assets/img/product.svg";
+import noproduct from "../../assets/img/noproduct.png";
 import cssModules from "../../assets/css/Product.module.css";
 
 // import config
@@ -16,7 +17,7 @@ function Product() {
   const navigate = useNavigate();
 
   const [products, setProducts] = useState([]);
-  const [del, setDel] = useState(false);
+  const [del, setDel] = useState(null);
 
   const getProducts = async () => {
     try {
@@ -26,6 +27,26 @@ function Product() {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const delAlert = (id, name) => {
+    const modal = (
+      <div className={cssModules.confirmModal}>
+        <p>
+          Are you sure to delete <strong>{name}</strong>?
+        </p>
+        <div className={cssModules.actBtn}>
+          <button className={cssModules.promoteBtn} onClick={() => delProd(id)}>
+            Yes
+          </button>
+          <button className={cssModules.delBtn} onClick={() => setDel(null)}>
+            Cancel
+          </button>
+        </div>
+      </div>
+    );
+
+    setDel(modal);
   };
 
   const delProd = async (id) => {
@@ -57,63 +78,47 @@ function Product() {
 
         <br />
 
+        {del ? del : <></>}
+
         <div className={cssModules.prodContainer}>
-          {products?.map((item) => (
+          {products.length !== 0 ? (
             <>
-              {del ? (
-                <div className={cssModules.confirmModal}>
-                  <p>
-                    Are you sure to delete <strong>{item.title}</strong>?
-                  </p>
-                  <div className={cssModules.actBtn}>
+              {products?.map((item) => (
+                <div className={cssModules.productCard}>
+                  <div className={cssModules.productImg}>
+                    <img src={item.thumbnail} alt={item.thumbnail} />
+                  </div>
+                  <div className={cssModules.productDesc}>
+                    <h3>{item.title}</h3>
+                    <p>
+                      {toRupiah(item.price, {
+                        formal: false,
+                        floatingPoint: 0,
+                      })}
+                    </p>
+                  </div>
+                  <div className={cssModules.actionBtn}>
                     <button
-                      className={cssModules.promoteBtn}
-                      onClick={() => delProd(item.id)}
+                      className={cssModules.editBtn}
+                      onClick={() => navigate(`/product-edit/${item.id}`)}
                     >
-                      Yes
+                      Edit
                     </button>
                     <button
                       className={cssModules.delBtn}
-                      onClick={() => setDel(false)}
+                      onClick={() => delAlert(item.id, item.title)}
                     >
-                      Cancel
+                      Delete
                     </button>
                   </div>
                 </div>
-              ) : (
-                <></>
-              )}
-
-              <div className={cssModules.productCard}>
-                <div className={cssModules.productImg}>
-                  <img src={item.thumbnail} alt={item.thumbnail} />
-                </div>
-                <div className={cssModules.productDesc}>
-                  <h3>{item.title}</h3>
-                  <p>
-                    {toRupiah(item.price, {
-                      formal: false,
-                      floatingPoint: 0,
-                    })}
-                  </p>
-                </div>
-                <div className={cssModules.actionBtn}>
-                  <button
-                    className={cssModules.editBtn}
-                    onClick={() => navigate(`/product-edit/${item.id}`)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className={cssModules.delBtn}
-                    onClick={() => setDel(true)}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
+              ))}
             </>
-          ))}
+          ) : (
+            <div className={cssModules.noData}>
+              <img src={noproduct} alt="No Product to Display" />
+            </div>
+          )}
         </div>
       </div>
     </>

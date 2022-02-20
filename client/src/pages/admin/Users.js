@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import UserCard from "../../components/card/UserCard";
 
 // import assets
+import nocustomer from "../../assets/img/nocustomer.png";
 import cssModules from "../../assets/css/Users.module.css";
 
 // import config
@@ -31,9 +32,17 @@ function Users() {
 
   return (
     <div className={cssModules.bodyUsers}>
-      {user?.map((item, index) => (
-        <UserCard item={item} key={index} />
-      ))}
+      {user.length !== 0 ? (
+        <>
+          {user?.map((item, index) => (
+            <UserCard item={item} key={index} />
+          ))}
+        </>
+      ) : (
+        <div className={cssModules.noData}>
+          <img src={nocustomer} alt="No Product to Display" />
+        </div>
+      )}
     </div>
   );
 }

@@ -50,10 +50,28 @@ function DetailProduct() {
     }
   };
 
+  const checked = async (idTop, isClick) => {
+    try {
+      if (isClick === 0) {
+        await API.patch(`/setClick/${idTop}/1`);
+
+        getToppings();
+      } else if (isClick === 1) {
+        await API.patch(`/setClick/${idTop}/0`);
+
+        getToppings();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    getToppings();
     getProduct();
+    getToppings();
   }, []);
+
+  useEffect(getToppings);
 
   return (
     <>
@@ -69,8 +87,12 @@ function DetailProduct() {
           <h2>Topping</h2>
           <div className={cssModules.menuWrapper}>
             {toppings?.map((item) => (
-              <div className={cssModules.toppingMenu}>
-                {/* {checked.isChecked ? (
+              <div
+                id="topp"
+                className={cssModules.toppingMenu}
+                onClick={() => checked(item.id, item.isClick)}
+              >
+                {item.isClick === 1 ? (
                   <img
                     src={check}
                     alt="isChecked"
@@ -78,7 +100,7 @@ function DetailProduct() {
                   />
                 ) : (
                   <></>
-                )} */}
+                )}
                 <img src={item.thumbnail} alt="Bubble Tea Gelatin" />
                 <div>
                   <p>{item.title}</p>

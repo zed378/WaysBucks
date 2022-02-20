@@ -7,6 +7,7 @@ import ProductCard from "../components/card/ProductCard";
 // import assets
 import cssModules from "../assets/css/LandingPage.module.css";
 import banner from "../assets/img/banner.jpg";
+import noproduct from "../assets/img/noproduct.png";
 import { UserContext } from "../context/UserContext";
 
 // import config
@@ -65,9 +66,17 @@ function LandingPage() {
         <h1>Let's Order</h1>
         <br />
         <div className={cssModules.productDisplay}>
-          {products?.map((item, index) => (
-            <ProductCard item={item} key={index} click={detil} />
-          ))}
+          {products.length !== 0 ? (
+            <>
+              {products?.map((item, index) => (
+                <ProductCard item={item} key={index} click={detil} />
+              ))}
+            </>
+          ) : (
+            <div className={cssModules.noData}>
+              <img src={noproduct} alt="No Product to Display" />
+            </div>
+          )}
         </div>
       </div>
     </>
