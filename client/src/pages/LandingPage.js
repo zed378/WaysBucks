@@ -16,7 +16,7 @@ import { API } from "../config/api";
 function LandingPage() {
   const [state, dispatch] = useContext(UserContext);
 
-  const [products, setProducts] = useState([]);
+  const [prods, setProducts] = useState([]);
 
   const getProducts = async () => {
     try {
@@ -66,9 +66,9 @@ function LandingPage() {
         <h1>Let's Order</h1>
         <br />
         <div className={cssModules.productDisplay}>
-          {products.length !== 0 ? (
+          {prods.length !== 0 ? (
             <>
-              {products?.map((item, index) => (
+              {prods?.map((item, index) => (
                 <ProductCard item={item} key={index} click={detil} />
               ))}
             </>

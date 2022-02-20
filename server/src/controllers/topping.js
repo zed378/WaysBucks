@@ -12,10 +12,16 @@ exports.getToppings = async (req, res) => {
         model: user,
         as: "user",
         attributes: {
-          exclude: ["password", "isAdmin", "photo", "createdAt", "updatedAt"],
+          exclude: [
+            "id",
+            "password",
+            "isAdmin",
+            "photo",
+            "createdAt",
+            "updatedAt",
+          ],
         },
       },
-
       attributes: {
         exclude: ["userId", "createdAt", "updatedAt"],
       },
@@ -53,7 +59,14 @@ exports.getTopping = async (req, res) => {
         model: user,
         as: "user",
         attributes: {
-          exclude: ["password", "isAdmin", "photo", "createdAt", "updatedAt"],
+          exclude: [
+            "id",
+            "password",
+            "isAdmin",
+            "photo",
+            "createdAt",
+            "updatedAt",
+          ],
         },
       },
 

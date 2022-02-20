@@ -10,14 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       transaction.belongsTo(models.user, {
-        as: "user",
-        foreignKey: "userId",
-      });
-
-      transaction.belongsTo(models.product, {
-        as: "product",
+        as: "userTransaction",
         foreignKey: {
-          name: "productId",
+          name: "userId",
         },
       });
     }
@@ -25,11 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   transaction.init(
     {
       userId: DataTypes.INTEGER,
-      productId: DataTypes.INTEGER,
-      toppingId: DataTypes.INTEGER,
-      total: DataTypes.INTEGER,
       status: DataTypes.STRING,
-      qty: DataTypes.INTEGER,
     },
     {
       sequelize,

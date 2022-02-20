@@ -93,6 +93,32 @@ exports.getTransaction = async (req, res) => {
   }
 };
 
+exports.addTransaction = async (req, res) => {
+  try {
+    const { prodId } = req.params;
+
+    const data = {
+      userId: req.user.id,
+      productId: prodId,
+      toppingId: req.body.topping,
+      total: req.body.total,
+      qty: req.body.qty,
+    };
+
+    await transaction.create(data);
+
+    res.send({
+      status: "Success",
+      data,
+    });
+  } catch (error) {
+    res.send({
+      status: "Failed",
+      message: "Server Error",
+    });
+  }
+};
+
 exports.getUserTransaction = async (req, res) => {
   try {
   } catch (error) {
