@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
         },
       });
 
-      product.hasMany(models.order, {
-        as: "product",
+      product.hasMany(models.transaction, {
+        as: "transaction",
         foreignKey: {
           name: "productId",
         },
@@ -30,7 +30,6 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       price: DataTypes.INTEGER,
       thumbnail: DataTypes.STRING,
-      qty: DataTypes.INTEGER,
     },
     {
       sequelize,

@@ -26,10 +26,6 @@ module.exports = {
       thumbnail: {
         type: Sequelize.STRING,
       },
-      isClick: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

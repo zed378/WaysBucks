@@ -17,18 +17,33 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
-      orderId: {
+      productId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "orders",
+          model: "products",
           key: "id",
         },
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
+      toppingId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "toppings",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
+      total: {
+        type: Sequelize.INTEGER,
+      },
       status: {
         type: Sequelize.STRING,
         defaultValue: "pending",
+      },
+      qty: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       transactionId: DataTypes.INTEGER,
       name: DataTypes.STRING,
+      attach: DataTypes.STRING,
       address: DataTypes.STRING,
       postcode: DataTypes.INTEGER,
     },

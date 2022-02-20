@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
         },
       });
 
-      topping.belongsToMany(models.order, {
-        as: "order",
+      topping.belongsToMany(models.transaction, {
+        as: "topping",
         through: {
           model: "product_topping",
           as: "bridge",
@@ -32,7 +32,6 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       price: DataTypes.INTEGER,
       thumbnail: DataTypes.STRING,
-      isClick: DataTypes.INTEGER,
     },
     {
       sequelize,

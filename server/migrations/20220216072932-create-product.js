@@ -26,9 +26,7 @@ module.exports = {
       thumbnail: {
         type: Sequelize.STRING,
       },
-      qty: {
-        type: Sequelize.INTEGER,
-      },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
