@@ -93,40 +93,8 @@ exports.getTransaction = async (req, res) => {
   }
 };
 
-exports.addOrder = async (req, res) => {
+exports.getUserTransaction = async (req, res) => {
   try {
-    const body = req.body;
-
-    const data = await order.create({
-      userId: req.user.id,
-      body,
-    });
-
-    res.send({
-      status: "Success",
-      data,
-    });
-  } catch (error) {
-    res.send({
-      status: "Failed",
-      message: "Server Error",
-    });
-  }
-};
-
-exports.addTransaction = async (req, res) => {
-  try {
-    const data = req.body;
-
-    await transaction.create({
-      userId: req.user.id,
-      data,
-    });
-
-    res.send({
-      status: "Success",
-      message: "Transaction Successfully Added",
-    });
   } catch (error) {
     res.send({
       status: "Failed",

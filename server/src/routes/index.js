@@ -34,12 +34,11 @@ const {
 } = require("../controllers/topping");
 
 // import transaction controller
-const {
-  getTransactions,
-  getTransaction,
-  addTransaction,
-  addOrder,
-} = require("../controllers/transaction");
+// const {
+//   getTransactions,
+//   getTransaction,
+//   addTransaction,
+// } = require("../controllers/transaction");
 
 // import middleware
 const { auth } = require("../middlewares/auth");
@@ -78,9 +77,9 @@ router.patch("/setClick/:idTop/:click", auth, setClick);
 router.delete("/topping/:id", auth, deleteTopping);
 
 // define transaction routes
-router.get("/transactions", auth, getTransactions);
-router.get("/transaction/:id", auth, getTransaction);
-router.post("/transaction", auth, addTransaction);
-router.post("/order", auth, addOrder);
+// router.get("/transactions", auth, getTransactions);
+// router.get("/transaction/:id", auth, getTransaction);
+// router.post("/transaction", auth, addTransaction);
+// router.post("/order", auth, addOrder);
 
 module.exports = router;
