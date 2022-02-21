@@ -1,17 +1,21 @@
 // import packages
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
 // import component
 
 // import assets
 import cssModules from "../assets/css/Cart.module.css";
-import product1 from "../assets/img/product1.png";
 import trash from "../assets/img/trash.svg";
 import attachment from "../assets/img/attachment.svg";
 import { UserContext } from "../context/UserContext";
 
+// import config
+import { API } from "../config/api";
+
 function Cart() {
   const [state, dispatch] = useContext(UserContext);
+
+  const [transaction, setTransaction] = useState([]);
 
   // store data
   const [form, setForm] = useState({
@@ -57,6 +61,32 @@ function Cart() {
     }
   };
 
+  const getTransaction = async () => {
+    try {
+      const response = await API.get(`/user-transaction/${state.user.id}`);
+
+      setTransaction(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const delTransaction = async (transID) => {
+    try {
+      await API.delete(`/transaction/${transID}`);
+
+      getTransaction();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log(transaction.product);
+
+  useEffect(() => {
+    getTransaction();
+  }, []);
+
   return (
     <>
       <div className={cssModules.cartBody}>
@@ -68,43 +98,30 @@ function Cart() {
           <div className={cssModules.orderReview}>
             <div className={cssModules.orderItems}>
               {/* item description  */}
-              <div className={cssModules.itemDesc}>
-                <div className={cssModules.productDesc}>
-                  <div className={cssModules.productImg}>
-                    <img src={product1} alt="Product" />
+              {transaction?.map((item) => (
+                <div className={cssModules.itemDesc}>
+                  <div className={cssModules.productDesc}>
+                    <div className={cssModules.productImg}>
+                      {/* <img src={transaction.product.thumbnail} alt="Product" /> */}
+                    </div>
+                    <div className={cssModules.descriptions}>
+                      {/* <h4>{transaction.product.title}</h4> */}
+                      <p>
+                        {/* <strong>Topping :</strong> {transaction.topping.title} */}
+                      </p>
+                    </div>
                   </div>
-                  <div className={cssModules.descriptions}>
-                    <h4>Ice Coffee Palm Sugar</h4>
-                    <p>
-                      <strong>Topping :</strong> Bill Berry Boba, Bubble Tea
-                      Gelatin
-                    </p>
+                  <div className={cssModules.productPrices}>
+                    <p>{item.total}</p>
+                    <img
+                      src={trash}
+                      alt="del btn"
+                      onClick={() => delTransaction(item.id)}
+                    />
                   </div>
                 </div>
-                <div className={cssModules.productPrices}>
-                  <p>Rp 33.000</p>
-                  <img src={trash} alt="del btn" />
-                </div>
-              </div>
+              ))}
               {/* end of item description */}
-
-              <div className={cssModules.itemDesc}>
-                <div className={cssModules.productDesc}>
-                  <div className={cssModules.productImg}>
-                    <img src={product1} alt="Product" />
-                  </div>
-                  <div className={cssModules.descriptions}>
-                    <h4>Ice Coffee Palm Sugar</h4>
-                    <p>
-                      <strong>Topping :</strong> Bill Berry Boba, Mango
-                    </p>
-                  </div>
-                </div>
-                <div className={cssModules.productPrices}>
-                  <p>Rp 36.000</p>
-                  <img src={trash} alt="del btn" />
-                </div>
-              </div>
             </div>
 
             <br />

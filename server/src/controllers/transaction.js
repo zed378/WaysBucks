@@ -111,7 +111,46 @@ exports.getUserTransactions = async (req, res) => {
   try {
     const { userId } = req.params;
 
-    const data = await transaction.findAll({ where: { userId } });
+    const data = await transaction.findAll({
+      where: { userId, status: "pending" },
+
+      include: [
+        {
+          model: user,
+          as: "user",
+          attributes: {
+            exclude: ["password", "isAdmin", "photo", "createdAt", "updatedAt"],
+          },
+        },
+
+        {
+          model: product,
+          as: "product",
+          attributes: {
+            exclude: ["id", "userId", "createdAt", "updatedAt"],
+          },
+        },
+
+        {
+          model: topping,
+          as: "topping",
+          attributes: {
+            exclude: [
+              "id",
+              "userId",
+              "isClick",
+              "thumbnail",
+              "createdAt",
+              "updatedAt",
+            ],
+          },
+        },
+      ],
+
+      attributes: {
+        exclude: ["createdAt", "updatedAt"],
+      },
+    });
 
     res.send({
       status: "Success",

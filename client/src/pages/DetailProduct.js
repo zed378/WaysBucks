@@ -120,7 +120,7 @@ function DetailProduct() {
     getToppings();
   }, []);
 
-  // useEffect(getToppings);
+  useEffect(getToppings);
 
   return (
     <>

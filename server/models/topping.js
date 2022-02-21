@@ -15,6 +15,13 @@ module.exports = (sequelize, DataTypes) => {
           name: "userId",
         },
       });
+
+      topping.hasMany(models.transaction, {
+        as: "topping",
+        foreignKey: {
+          name: "toppingId",
+        },
+      });
     }
   }
   topping.init(
