@@ -41,8 +41,12 @@ const {
   editTransaction,
   deleteTransaction,
   getUserTransactions,
+  getUserAllTrans,
   basket,
 } = require("../controllers/transaction");
+
+// import income controller
+const { getIncomes, addIncome } = require("../controllers/income");
 
 // import middleware
 const { auth } = require("../middlewares/auth");
@@ -87,6 +91,11 @@ router.post("/transaction/:prodId/:topId/:qty/:total", auth, addTransaction);
 router.patch("/transaction/:id/:status", auth, editTransaction);
 router.delete("/transaction/:id", auth, deleteTransaction);
 router.get("/user-transaction/:userId", auth, getUserTransactions);
+router.get("/user-transactions/:userId", auth, getUserAllTrans);
 router.get("/basket/:userId", auth, basket);
+
+// define income routes
+router.get("/incomes", auth, getIncomes);
+router.post("/income/:transactionId", auth, paymentImg("attach"), addIncome);
 
 module.exports = router;

@@ -1,5 +1,6 @@
 // import packages
 import { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import toRupiah from "@develoka/angka-rupiah-js";
 
 // import component
@@ -17,17 +18,18 @@ const path = "http://localhost:5000/uploads/product/";
 
 function Cart() {
   const [state, dispatch] = useContext(UserContext);
+  let navigate = useNavigate();
 
   const [transaction, setTransaction] = useState([]);
 
   // store data
   const [form, setForm] = useState({
-    attach: "",
     name: "",
     email: "",
     phone: "",
-    postal: "",
+    attach: "",
     address: "",
+    postcode: "",
   });
   // init state for preview thumbnail
   const [preview, setPreview] = useState(null);
@@ -59,19 +61,44 @@ function Cart() {
     setDel(modal);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch({
-      type: "popShow",
-    });
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
 
-    setTimeout(
-      () =>
+      const config = {
+        headers: {
+          "Content-type": "multipart/form-data",
+        },
+      };
+
+      // Store form data as object
+      const formData = new FormData();
+      formData.set("name", form.name);
+      formData.set("email", form.email);
+      formData.set("phone", form.phone);
+      formData.set("address", form.address);
+      formData.set("postcode", form.postcode);
+      formData.set("attach", form.attach[0], form.attach[0].name);
+
+      await API.post(`/income/${transaction[0].id}`, formData, config);
+      await API.patch(`/transaction/${transaction[0].id}/process`);
+
+      dispatch({
+        type: "popShow",
+      });
+
+      setTimeout(() => {
         dispatch({
           type: "popClose",
-        }),
-      5000
-    );
+        });
+
+        navigate("/");
+
+        document.location.reload(true);
+      }, 4000);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleChange = (e) => {
@@ -215,6 +242,7 @@ function Cart() {
                 </div>
               </div>
 
+              {/* Form */}
               <div className={cssModules.personInfo}>
                 <form onSubmit={handleSubmit}>
                   <input
@@ -244,7 +272,7 @@ function Cart() {
                   />
                   <input
                     type="number"
-                    name="postal"
+                    name="postcode"
                     placeholder="Postal Code"
                     onChange={handleChange}
                   />

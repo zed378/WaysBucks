@@ -1,23 +1,25 @@
 // import packages
 import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import dateFormat, { masks } from "dateformat";
+import toRupiah from "@develoka/angka-rupiah-js";
 
 // import component
 
 // import assets
 import cssModules from "../assets/css/Profile.module.css";
-import profile from "../assets/img/profile.jpg";
 import logo from "../assets/img/logo.svg";
 import qr from "../assets/img/qr.svg";
-import product1 from "../assets/img/product1.png";
 import { UserContext } from "../context/UserContext";
 
 // import config
 import { API } from "../config/api";
+const path = "http://localhost:5000/uploads/product/";
 
 function Profile() {
   const [state, dispatch] = useContext(UserContext);
   const [user, setUser] = useState([]);
+  const [trans, setTrans] = useState([]);
 
   const getUser = async () => {
     try {
@@ -28,8 +30,19 @@ function Profile() {
     }
   };
 
+  const getUserTrans = async () => {
+    try {
+      const respone = await API.get(`/user-transactions/${state.user.id}`);
+
+      setTrans(respone.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getUser();
+    getUserTrans();
   }, []);
 
   let navigate = useNavigate();
@@ -63,57 +76,84 @@ function Profile() {
           {!state.isAdmin ? (
             <div className={cssModules.historyTransaction}>
               <h1>My Transaction</h1>
-              <div className={cssModules.transactionCard}>
-                <div className={cssModules.detilTrans}>
-                  <div className={cssModules.itemTrans}>
-                    <div className={cssModules.imgProduct}>
-                      <img src={product1} alt="Product Pic" />
-                    </div>
-                    <div className={cssModules.itemDesc}>
-                      <h4>Ice Coffee Palm Sugar</h4>
-                      <p className={cssModules.datePurchase}>
-                        <strong>Saturday,</strong> 5 March 2020
-                      </p>
-                      <br />
-                      <p className={cssModules.topping}>
-                        Topping: Bill Berry Boba, Bubble Tea Gelatin
-                      </p>
-                      <p className={cssModules.productPrice}>
-                        Price: Rp 33.000
-                      </p>
-                    </div>
-                  </div>
-                  <div className={cssModules.itemTrans}>
-                    <div className={cssModules.imgProduct}>
-                      <img src={product1} alt="Product Pic" />
-                    </div>
-                    <div className={cssModules.itemDesc}>
-                      <h4>Ice Coffee Palm Sugar</h4>
-                      <p className={cssModules.datePurchase}>
-                        <strong>Saturday,</strong> 5 March 2020
-                      </p>
-                      <br />
-                      <p className={cssModules.topping}>
-                        Topping: Bill Berry Boba, Bubble Tea Gelatin
-                      </p>
-                      <p className={cssModules.productPrice}>
-                        Price: Rp 33.000
-                      </p>
+              {trans?.map((item) => (
+                <div className={cssModules.transactionCard}>
+                  <div className={cssModules.detilTrans}>
+                    <div className={cssModules.itemTrans}>
+                      <div className={cssModules.imgProduct}>
+                        <img
+                          src={path + item.product.thumbnail}
+                          alt="Product Pic"
+                        />
+                      </div>
+                      <div className={cssModules.itemDesc}>
+                        <h4>{item.product.title}</h4>
+                        <p className={cssModules.datePurchase}>
+                          {dateFormat(item.createdAt, "fullDate")}
+                        </p>
+                        <br />
+                        <p className={cssModules.topping}>
+                          Topping: {item.topping.title}
+                        </p>
+                        <p className={cssModules.productPrice}>
+                          Price:{" "}
+                          {toRupiah(item.total, {
+                            formal: false,
+                            floatingPoint: 0,
+                          })}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className={cssModules.productStamp}>
-                  <img src={logo} alt="Logo" className={cssModules.bucksLogo} />
-                  <img src={qr} alt="QR Code" className={cssModules.qrCode} />
-                  <div>
-                    <p className={cssModules.productStatus}>On The way</p>
-                    <p className={cssModules.totalPurchase}>
-                      Sub Total: Rp 69.000
-                    </p>
+                  <div className={cssModules.productStamp}>
+                    <img
+                      src={logo}
+                      alt="Logo"
+                      className={cssModules.bucksLogo}
+                    />
+                    <img src={qr} alt="QR Code" className={cssModules.qrCode} />
+                    <div className={cssModules.stats}>
+                      <p
+                        className={cssModules.productStatus}
+                        style={{
+                          background:
+                            item.status === "otw"
+                              ? "rgba(0, 209, 255, 0.2)"
+                              : item.status === "process"
+                              ? "rgba(0, 209, 255, 0.2)"
+                              : item.status === "cancel"
+                              ? "#E8393950"
+                              : "#78A85A30",
+                          color:
+                            item.status === "otw"
+                              ? "#0063cf"
+                              : item.status === "process"
+                              ? "#0063cf"
+                              : item.status === "cancel"
+                              ? "#E83939"
+                              : "#78A85A",
+                        }}
+                      >
+                        {item.status === "process"
+                          ? "Wait Approval"
+                          : item.status === "otw"
+                          ? "On The Way"
+                          : item.status === "cancel"
+                          ? "Cancel"
+                          : "Success"}
+                      </p>
+                      <p className={cssModules.totalPurchase}>
+                        Sub Total:{" "}
+                        {toRupiah(item.total, {
+                          formal: false,
+                          floatingPoint: 0,
+                        })}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           ) : (
             <></>

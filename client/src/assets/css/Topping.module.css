@@ -123,10 +123,10 @@ p {
 }
 
 .confirmModal {
-  width: 20%;
+  width: 30%;
   position: absolute;
   z-index: 9;
-  box-shadow: 0 0 8px 0 black;
+  box-shadow: 0 0 8px 1px black;
   background: white;
   top: 50%;
   left: 50%;
@@ -307,6 +307,33 @@ p {
     width: 45%;
     height: auto;
   }
+
+  .confirmModal > p {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    margin: 1rem 0;
+  }
+
+  .actBtn {
+    width: 100%;
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .actBtn > button {
+    width: 50%;
+    border: none;
+    padding: 0.5rem 0;
+    font-size: 1.25rem;
+    font-family: avenirs;
+    color: white;
+    cursor: pointer;
+  }
+
+  .promoteBtn {
+    background: rgb(2, 90, 190);
+  }
 }
 
 @media only screen and (max-width: 1366px) {
@@ -440,6 +467,48 @@ p {
   .noData > img {
     width: 40%;
     height: auto;
+  }
+
+  .confirmModal {
+    width: 40%;
+    position: absolute;
+    z-index: 9;
+    box-shadow: 0 0 8px 1px black;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+
+  .confirmModal > p {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    margin: 1rem 0;
+  }
+
+  .actBtn {
+    width: 100%;
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .actBtn > button {
+    width: 50%;
+    border: none;
+    padding: 0.5rem 0;
+    font-size: 1.25rem;
+    font-family: avenirs;
+    color: white;
+    cursor: pointer;
+  }
+
+  .promoteBtn {
+    background: rgb(2, 90, 190);
   }
 }
 
@@ -575,6 +644,48 @@ p {
     width: 45%;
     height: auto;
   }
+
+  .confirmModal {
+    width: 45%;
+    position: absolute;
+    z-index: 9;
+    box-shadow: 0 0 8px 1px black;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+
+  .confirmModal > p {
+    font-size: 1.25rem;
+    padding: 0 1rem;
+    margin: 1rem 0;
+  }
+
+  .actBtn {
+    width: 100%;
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .actBtn > button {
+    width: 50%;
+    border: none;
+    padding: 0.5rem 0;
+    font-size: 1.25rem;
+    font-family: avenirs;
+    color: white;
+    cursor: pointer;
+  }
+
+  .promoteBtn {
+    background: rgb(2, 90, 190);
+  }
 }
 
 @media only screen and (max-width: 900px) {
@@ -708,6 +819,48 @@ p {
   .noData > img {
     width: 50%;
     height: auto;
+  }
+
+  .confirmModal {
+    width: 50%;
+    position: absolute;
+    z-index: 9;
+    box-shadow: 0 0 8px 1px black;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+
+  .confirmModal > p {
+    font-size: 1.25rem;
+    padding: 0 1rem;
+    margin: 1rem 0;
+  }
+
+  .actBtn {
+    width: 100%;
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .actBtn > button {
+    width: 50%;
+    border: none;
+    padding: 0.5rem 0;
+    font-size: 1.25rem;
+    font-family: avenirs;
+    color: white;
+    cursor: pointer;
+  }
+
+  .promoteBtn {
+    background: rgb(2, 90, 190);
   }
 }
 
@@ -843,6 +996,48 @@ p {
     width: 60%;
     height: auto;
   }
+
+  .confirmModal {
+    width: 60%;
+    position: absolute;
+    z-index: 9;
+    box-shadow: 0 0 8px 1px black;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+
+  .confirmModal > p {
+    font-size: 1.25rem;
+    padding: 0 1rem;
+    margin: 1rem 0;
+  }
+
+  .actBtn {
+    width: 100%;
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .actBtn > button {
+    width: 50%;
+    border: none;
+    padding: 0.5rem 0;
+    font-size: 1.25rem;
+    font-family: avenirs;
+    color: white;
+    cursor: pointer;
+  }
+
+  .promoteBtn {
+    background: rgb(2, 90, 190);
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -976,6 +1171,48 @@ p {
   .noData > img {
     width: 70%;
     height: auto;
+  }
+
+  .confirmModal {
+    width: 70%;
+    position: absolute;
+    z-index: 9;
+    box-shadow: 0 0 8px 1px black;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+
+  .confirmModal > p {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+    margin: 1rem 0;
+  }
+
+  .actBtn {
+    width: 100%;
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .actBtn > button {
+    width: 50%;
+    border: none;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    font-family: avenirs;
+    color: white;
+    cursor: pointer;
+  }
+
+  .promoteBtn {
+    background: rgb(2, 90, 190);
   }
 }
 
@@ -1111,6 +1348,48 @@ p {
     width: 90%;
     height: auto;
   }
+
+  .confirmModal {
+    width: 90%;
+    position: absolute;
+    z-index: 9;
+    box-shadow: 0 0 8px 1px black;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+
+  .confirmModal > p {
+    font-size: 1.25rem;
+    padding: 0 1rem;
+    margin: 1rem 0;
+  }
+
+  .actBtn {
+    width: 100%;
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .actBtn > button {
+    width: 50%;
+    border: none;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    font-family: avenirs;
+    color: white;
+    cursor: pointer;
+  }
+
+  .promoteBtn {
+    background: rgb(2, 90, 190);
+  }
 }
 
 @media only screen and (max-width: 360px) {
@@ -1234,5 +1513,47 @@ p {
 
   .delBtn {
     background: #bd0707;
+  }
+
+  .confirmModal {
+    width: 90%;
+    position: absolute;
+    z-index: 9;
+    box-shadow: 0 0 8px 1px black;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+
+  .confirmModal > p {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+    margin: 1rem 0;
+  }
+
+  .actBtn {
+    width: 100%;
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .actBtn > button {
+    width: 50%;
+    border: none;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    font-family: avenirs;
+    color: white;
+    cursor: pointer;
+  }
+
+  .promoteBtn {
+    background: rgb(2, 90, 190);
   }
 }

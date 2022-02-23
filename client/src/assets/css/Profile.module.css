@@ -65,6 +65,7 @@ div > p {
 
 .profileData > button {
   padding: 0.5rem 0;
+  width: 100%;
   font-family: avenir;
   font-size: 1rem;
   background: #bd0707;
@@ -85,8 +86,10 @@ div > p {
 .transactionCard {
   width: 100%;
   display: flex;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
   box-sizing: border-box;
-  padding: 20px 30px;
+  padding: 20px 25px;
   background: #f6dada;
   border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -96,10 +99,10 @@ div > p {
 }
 
 .detilTrans {
-  width: 75%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .itemTrans {
@@ -157,26 +160,33 @@ div > p {
   color: #613d2b;
 }
 
-.productStamp {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 25%;
-}
-
-.bucksLogo {
-  max-width: 45%;
-  margin-bottom: 3rem;
-}
-
-.qrCode {
-  width: 60%;
+.detilTrans::after {
+  content: "_______________________________";
+  color: #bd0707;
+  text-align: center;
   margin-bottom: 1rem;
 }
 
+.productStamp {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.bucksLogo,
+.qrCode {
+  width: 12.5%;
+}
+
+.stats {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .productStatus {
-  background: rgba(0, 209, 255, 0.2);
-  color: #00d1ff;
   width: 100%;
   padding: 5px 0;
   text-align: center;
@@ -241,6 +251,7 @@ div > p {
   }
 
   .profileData {
+    width: 47.5%;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -249,13 +260,29 @@ div > p {
   div > h3 {
     margin: 0 0 10px 0;
     color: #613d2b;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 
   div > p {
     margin: 0%;
     font-family: avenirs;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
+  }
+
+  .profileData > button {
+    padding: 0.5rem 0;
+    width: 100%;
+    font-family: avenir;
+    font-size: 1rem;
+    background: #bd0707;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
   }
 
   .historyTransaction {
@@ -280,10 +307,10 @@ div > p {
   }
 
   .detilTrans {
-    width: 75%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
   }
 
   .itemTrans {
@@ -341,21 +368,30 @@ div > p {
     color: #613d2b;
   }
 
+  .detilTrans::after {
+    content: "_______________________________";
+    color: #bd0707;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
   .productStamp {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
   }
 
-  .bucksLogo {
-    max-width: 45%;
-    margin-bottom: 3rem;
-  }
-
+  .bucksLogo,
   .qrCode {
-    width: 60%;
-    margin-bottom: 1rem;
+    width: 12.5%;
+  }
+
+  .stats {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .productStatus {
@@ -411,7 +447,7 @@ div > p {
     display: inline-block;
     position: relative;
     width: 45%;
-    height: 350px;
+    height: 300px;
     overflow: hidden;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -428,6 +464,7 @@ div > p {
   }
 
   .profileData {
+    width: 47.5%;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -436,13 +473,29 @@ div > p {
   div > h3 {
     margin: 0 0 10px 0;
     color: #613d2b;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 
   div > p {
     margin: 0%;
     font-family: avenirs;
-    font-size: 1.25rem;
+    font-size: 1rem;
+  }
+
+  .profileData > button {
+    padding: 0.5rem 0;
+    width: 100%;
+    font-family: avenir;
+    font-size: 1rem;
+    background: #bd0707;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
   }
 
   .historyTransaction {
@@ -469,10 +522,10 @@ div > p {
   }
 
   .detilTrans {
-    width: 75%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
   }
 
   .itemTrans {
@@ -532,21 +585,30 @@ div > p {
     color: #613d2b;
   }
 
+  .detilTrans::after {
+    content: "_______________________________";
+    color: #bd0707;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
   .productStamp {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
   }
 
-  .bucksLogo {
-    max-width: 45%;
-    margin-bottom: 3rem;
-  }
-
+  .bucksLogo,
   .qrCode {
-    width: 60%;
-    margin-bottom: 1rem;
+    width: 12.5%;
+  }
+
+  .stats {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .productStatus {
@@ -596,7 +658,7 @@ div > p {
 
   .contentWrap {
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
   }
 
   .profileImg {
@@ -620,6 +682,7 @@ div > p {
   }
 
   .profileData {
+    width: 57.5%;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -628,13 +691,29 @@ div > p {
   div > h3 {
     margin: 0 0 10px 0;
     color: #613d2b;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 
   div > p {
     margin: 0;
     font-family: avenirs;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+  }
+
+  .profileData > button {
+    padding: 0.5rem 0;
+    width: 100%;
+    font-family: avenir;
+    font-size: 1.15rem;
+    background: #bd0707;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
   }
 
   .historyTransaction {
@@ -661,10 +740,10 @@ div > p {
   }
 
   .detilTrans {
-    width: 75%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
   }
 
   .itemTrans {
@@ -724,21 +803,30 @@ div > p {
     color: #613d2b;
   }
 
+  .detilTrans::after {
+    content: "_______________________________";
+    color: #bd0707;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
   .productStamp {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
   }
 
-  .bucksLogo {
-    max-width: 45%;
-    margin-bottom: 3rem;
-  }
-
+  .bucksLogo,
   .qrCode {
-    width: 60%;
-    margin-bottom: 1rem;
+    width: 12.5%;
+  }
+
+  .stats {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .productStatus {
@@ -853,10 +941,10 @@ div > p {
   }
 
   .detilTrans {
-    width: 75%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
   }
 
   .itemTrans {
@@ -916,21 +1004,30 @@ div > p {
     color: #613d2b;
   }
 
+  .detilTrans::after {
+    content: "_______________________________";
+    color: #bd0707;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
   .productStamp {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
   }
 
-  .bucksLogo {
-    max-width: 45%;
-    margin-bottom: 3rem;
-  }
-
+  .bucksLogo,
   .qrCode {
-    width: 60%;
-    margin-bottom: 1rem;
+    width: 12.5%;
+  }
+
+  .stats {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .productStatus {
@@ -1049,14 +1146,8 @@ div > p {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     margin-bottom: 1rem;
-  }
-
-  .detilTrans::after {
-    content: "___________________";
-    color: #bd0707;
-    text-align: center;
   }
 
   .itemTrans {
@@ -1116,29 +1207,30 @@ div > p {
     color: #613d2b;
   }
 
+  .detilTrans::after {
+    content: "_______________________________";
+    color: #bd0707;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
   .productStamp {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
-    width: 100%;
     gap: 1rem;
+    width: 100%;
   }
 
-  .bucksLogo {
-    max-width: 15%;
-    margin-bottom: 0;
-  }
-
+  .bucksLogo,
   .qrCode {
-    width: 15%;
-    margin-bottom: 0;
+    width: 12.5%;
   }
 
-  .productStamp > div {
-    width: 40%;
+  .stats {
+    width: 35%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
   .productStatus {
@@ -1218,6 +1310,22 @@ div > p {
     gap: 25px;
   }
 
+  .profileData > button {
+    padding: 0.5rem 0;
+    width: 100%;
+    font-family: avenir;
+    font-size: 1rem;
+    background: #bd0707;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+  }
+
   div > h3 {
     margin: 0 0 10px 0;
     color: #613d2b;
@@ -1258,14 +1366,8 @@ div > p {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0px;
     margin-bottom: 1rem;
-  }
-
-  .detilTrans::after {
-    content: "___________________";
-    color: #bd0707;
-    text-align: center;
   }
 
   .itemTrans {
@@ -1325,29 +1427,30 @@ div > p {
     color: #613d2b;
   }
 
+  .detilTrans::after {
+    content: "_______________________________";
+    color: #bd0707;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
   .productStamp {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
-    width: 100%;
     gap: 1rem;
+    width: 100%;
   }
 
-  .bucksLogo {
-    max-width: 15%;
-    margin-bottom: 0;
-  }
-
+  .bucksLogo,
   .qrCode {
-    width: 15%;
-    margin-bottom: 0;
+    width: 12.5%;
   }
 
-  .productStamp > div {
-    width: 45%;
+  .stats {
+    width: 40%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
   .productStatus {
@@ -1467,14 +1570,8 @@ div > p {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0px;
     margin-bottom: 1rem;
-  }
-
-  .detilTrans::after {
-    content: "___________________";
-    color: #bd0707;
-    text-align: center;
   }
 
   .itemTrans {
@@ -1534,29 +1631,30 @@ div > p {
     color: #613d2b;
   }
 
+  .detilTrans::after {
+    content: "_______________________________";
+    color: #bd0707;
+    text-align: center;
+    margin-bottom: 0.25rem;
+  }
+
   .productStamp {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
-    width: 100%;
     gap: 1rem;
+    width: 100%;
   }
 
-  .bucksLogo {
-    max-width: 15%;
-    margin-bottom: 0;
-  }
-
+  .bucksLogo,
   .qrCode {
-    width: 15%;
-    margin-bottom: 0;
+    width: 12.5%;
   }
 
-  .productStamp > div {
-    width: 50%;
+  .stats {
+    width: 45%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
   .productStatus {
@@ -1632,9 +1730,14 @@ div > p {
   }
 
   .profileData {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 25px;
+  }
+
+  .profileData > button {
+    width: 100%;
   }
 
   div > h3 {
@@ -1677,14 +1780,8 @@ div > p {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     margin-bottom: 1rem;
-  }
-
-  .detilTrans::after {
-    content: "___________________";
-    color: #bd0707;
-    text-align: center;
   }
 
   .itemTrans {
@@ -1745,29 +1842,34 @@ div > p {
     color: #613d2b;
   }
 
+  .detilTrans::after {
+    content: "_______________________________";
+    color: #bd0707;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
   .productStamp {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
     gap: 1rem;
+    width: 100%;
   }
 
   .bucksLogo {
-    max-width: 35%;
-    margin-bottom: 0;
+    width: 15%;
   }
 
   .qrCode {
-    width: 50%;
-    margin-bottom: 0;
+    width: 20%;
   }
 
-  .productStamp > div {
+  .stats {
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
   .productStatus {

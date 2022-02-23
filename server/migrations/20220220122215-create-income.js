@@ -20,6 +20,12 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
+      email: {
+        type: Sequelize.STRING,
+      },
+      phone: {
+        type: Sequelize.INTEGER,
+      },
       attach: {
         type: Sequelize.STRING,
       },
