@@ -78,7 +78,9 @@ function UserEdit() {
 
       {del ? (
         <div className={cssModules.confirmModal}>
-          <p>Are you sure to delete {user.name}?</p>
+          <p>
+            Are you sure to delete <strong>{user.name}</strong>?
+          </p>
           <div className={cssModules.actBtn}>
             <button className={cssModules.promoteBtn} onClick={delUser}>
               Yes

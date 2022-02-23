@@ -1,3 +1,49 @@
+.confirmModal {
+  width: 20%;
+  position: absolute;
+  z-index: 9;
+  box-shadow: 0 0 8px 1px black;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+.confirmModal > p {
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  margin: 1rem 0;
+}
+
+.actBtn {
+  width: 100%;
+  margin: 5px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.actBtn > button {
+  width: 50%;
+  border: none;
+  padding: 0.5rem 0;
+  font-size: 1.25rem;
+  font-family: avenirs;
+  color: white;
+  cursor: pointer;
+}
+
+.promoteBtn {
+  background: rgb(2, 90, 190);
+}
+
+.delBtn {
+  background: #bd0707;
+}
+
 .cartBody {
   width: 100%;
   box-sizing: border-box;
@@ -19,6 +65,16 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.notransaction {
+  width: 100%;
+  text-align: center;
+}
+
+.notransaction > img {
+  width: 40%;
+  height: auto;
 }
 
 .orderReview {
@@ -282,6 +338,16 @@ form > button:hover {
     width: 100%;
     display: flex;
     justify-content: space-between;
+  }
+
+  .notransaction {
+    width: 100%;
+    text-align: center;
+  }
+
+  .notransaction > img {
+    width: 45%;
+    height: auto;
   }
 
   .orderReview {
@@ -552,6 +618,16 @@ form > button:hover {
     justify-content: space-between;
   }
 
+  .notransaction {
+    width: 100%;
+    text-align: center;
+  }
+
+  .notransaction > img {
+    width: 40%;
+    height: auto;
+  }
+
   .orderReview {
     width: 62.5%;
   }
@@ -819,6 +895,16 @@ form > button:hover {
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
+
+  .notransaction {
+    width: 100%;
+    text-align: center;
+  }
+
+  .notransaction > img {
+    width: 40%;
+    height: auto;
   }
 
   .orderReview {
@@ -1100,6 +1186,16 @@ form > button:hover {
     flex-direction: column;
   }
 
+  .notransaction {
+    width: 100%;
+    text-align: center;
+  }
+
+  .notransaction > img {
+    width: 40%;
+    height: auto;
+  }
+
   .orderReview {
     width: 100%;
   }
@@ -1377,6 +1473,16 @@ form > button:hover {
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
+
+  .notransaction {
+    width: 100%;
+    text-align: center;
+  }
+
+  .notransaction > img {
+    width: 45%;
+    height: auto;
   }
 
   .orderReview {
@@ -1658,6 +1764,16 @@ form > button:hover {
     flex-direction: column;
   }
 
+  .notransaction {
+    width: 100%;
+    text-align: center;
+  }
+
+  .notransaction > img {
+    width: 75%;
+    height: auto;
+  }
+
   .orderReview {
     width: 100%;
   }
@@ -1937,6 +2053,16 @@ form > button:hover {
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
+
+  .notransaction {
+    width: 100%;
+    text-align: center;
+  }
+
+  .notransaction > img {
+    width: 85%;
+    height: auto;
   }
 
   .orderReview {
@@ -2226,6 +2352,16 @@ form > button:hover {
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
+
+  .notransaction {
+    width: 100%;
+    text-align: center;
+  }
+
+  .notransaction > img {
+    width: 90%;
+    height: auto;
   }
 
   .orderReview {

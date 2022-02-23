@@ -47,7 +47,7 @@ function NavAdmin() {
           className={cssModules.imgWrapper}
           onClick={() => setDropModal(true)}
         >
-          <img src={user.photo} alt="profile" />
+          <img src={user.photo} alt="Profile" />
         </div>
       </div>
     </>

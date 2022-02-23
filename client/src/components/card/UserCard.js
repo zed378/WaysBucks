@@ -11,7 +11,7 @@ function UserCard({ item }) {
     <>
       <div className={cssModules.userCard}>
         <div className={cssModules.imgContainer}>
-          <img src={item.photo} alt="" />
+          <img src={item.photo} alt="Profile" />
         </div>
 
         <p>{item.name}</p>
