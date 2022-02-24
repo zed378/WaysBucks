@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 // import assets
 import logo from "../../assets/img/logo.svg";
 import basket from "../../assets/img/basket.svg";
+import message from "../../assets/img/message.svg";
 import cssModules from "../../assets/css/NavLogged.module.css";
 import { UserContext } from "../../context/UserContext";
 
@@ -56,6 +57,13 @@ function NavLogged() {
       <div className={cssModules.navContainer}>
         <img src={logo} alt="Logo" onClick={() => navigate("/")} />
         <div className={cssModules.profileWrapper}>
+          <div className={cssModules.chat}>
+            <img
+              src={message}
+              alt="Conversation"
+              className={cssModules.chats}
+            />
+          </div>
           <div className={cssModules.pos}>
             <div className={cssModules.bask}>
               {transaction.length !== 0 ? (

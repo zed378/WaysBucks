@@ -140,7 +140,7 @@ function Income() {
                     <img
                       src={otw}
                       alt="otewe"
-                      style={{ height: "1.25rem", cursor: "pointer" }}
+                      style={{ height: "1.75rem", cursor: "pointer" }}
                       onClick={() =>
                         updateStatus(item.transaction.id, "success")
                       }

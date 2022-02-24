@@ -204,6 +204,8 @@ exports.getUserAllTrans = async (req, res) => {
         },
       ],
 
+      order: [["id", "DESC"]],
+
       attributes: {
         exclude: ["createdAt", "updatedAt"],
       },
