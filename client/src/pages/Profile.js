@@ -124,6 +124,8 @@ function Profile() {
                               ? "rgba(0, 209, 255, 0.2)"
                               : item.status === "cancel"
                               ? "#E8393950"
+                              : item.status === "pending"
+                              ? "rgba(0, 209, 255, 0.2)"
                               : "#78A85A30",
                           color:
                             item.status === "otw"
@@ -132,6 +134,8 @@ function Profile() {
                               ? "#0063cf"
                               : item.status === "cancel"
                               ? "#E83939"
+                              : item.status === "pending"
+                              ? "#0063cf"
                               : "#78A85A",
                         }}
                       >
@@ -141,6 +145,8 @@ function Profile() {
                           ? "On The Way"
                           : item.status === "cancel"
                           ? "Cancel"
+                          : item.status === "pending"
+                          ? "Need To Pay"
                           : "Success"}
                       </p>
                       <p className={cssModules.totalPurchase}>

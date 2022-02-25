@@ -15,6 +15,8 @@ import UserEdit from "./admin/edit/UserEdit";
 import ProductEdit from "./admin/edit/ProductEdit";
 import ToppingEdit from "./admin/edit/ToppingEdit";
 import ProfileEdit from "./ProfileEdit";
+import Chat from "./Chat";
+import ChatAdmin from "./admin/ChatAdmin";
 
 export {
   Cart,
@@ -34,4 +36,6 @@ export {
   ProductEdit,
   ToppingEdit,
   ProfileEdit,
+  Chat,
+  ChatAdmin,
 };

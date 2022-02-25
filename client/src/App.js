@@ -23,6 +23,8 @@ import {
   ProductEdit,
   ToppingEdit,
   ProfileEdit,
+  Chat,
+  ChatAdmin,
 } from "./pages";
 
 // import component
@@ -110,6 +112,9 @@ function App() {
             <Route exact path="/product-edit/:id" element={<ProductEdit />} />
             <Route exact path="/topping-edit/:id" element={<ToppingEdit />} />
             <Route exact path="/profile-edit/:id" element={<ProfileEdit />} />
+            <Route exact path="/profile-edit/:id" element={<ProfileEdit />} />
+            <Route exact path="/chat" element={<Chat />} />
+            <Route exact path="/chat-admin" element={<Chat />} />
           </Route>
         </Routes>
       </Router>
