@@ -6,13 +6,13 @@ import { io } from "socket.io-client";
 let socket;
 
 function ChatAdmin() {
-  useEffect(() => {
-    socket = io("http://localhost:5000");
+  // useEffect(() => {
+  //   socket = io("http://localhost:5000");
 
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
+  //   return () => {
+  //     socket.disconnect();
+  //   };
+  // }, []);
 
   return (
     <>

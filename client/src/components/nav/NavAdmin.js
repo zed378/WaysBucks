@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // import assets
 import logo from "../../assets/img/logo.svg";
+import message from "../../assets/img/message.svg";
 import cssModules from "../../assets/css/NavAdmin.module.css";
 import { UserContext } from "../../context/UserContext";
 
@@ -17,7 +18,7 @@ function NavAdmin() {
   // define state
   const [dropModal, setDropModal] = useState(false);
   const [user, setUser] = useState([]);
-  const [state, dispatch] = useContext(UserContext);
+  const [state] = useContext(UserContext);
 
   const getUser = async () => {
     try {
@@ -43,11 +44,23 @@ function NavAdmin() {
       {/* nav content  */}
       <div className={cssModules.navContainer}>
         <img src={logo} alt="Logo" onClick={() => navigate("/")} />
-        <div
-          className={cssModules.imgWrapper}
-          onClick={() => setDropModal(true)}
-        >
-          <img src={user.photo} alt="Profile" />
+        <div className={cssModules.profileWrapper}>
+          <div
+            className={cssModules.chat}
+            onClick={() => navigate("/chat-admin")}
+          >
+            <img
+              src={message}
+              alt="Conversation"
+              className={cssModules.chats}
+            />
+          </div>
+          <div
+            className={cssModules.imgWrapper}
+            onClick={() => setDropModal(true)}
+          >
+            <img src={user.photo} alt="Profile" />
+          </div>
         </div>
       </div>
     </>

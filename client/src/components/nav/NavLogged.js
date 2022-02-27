@@ -57,7 +57,7 @@ function NavLogged() {
       <div className={cssModules.navContainer}>
         <img src={logo} alt="Logo" onClick={() => navigate("/")} />
         <div className={cssModules.profileWrapper}>
-          <div className={cssModules.chat}>
+          <div className={cssModules.chat} onClick={() => navigate("/chat")}>
             <img
               src={message}
               alt="Conversation"

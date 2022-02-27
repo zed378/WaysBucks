@@ -16,7 +16,12 @@
 .profileWrapper {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 35px;
+}
+
+.chats {
+  height: 50px;
+  cursor: pointer;
 }
 
 .imgWrapper {
@@ -55,8 +60,13 @@
 
   .profileWrapper {
     display: flex;
+    gap: 30px;
     align-items: center;
-    gap: 40px;
+  }
+
+  .chats {
+    height: 45px;
+    cursor: pointer;
   }
 
   .imgWrapper {
@@ -100,6 +110,11 @@
     gap: 30px;
   }
 
+  .chats {
+    height: 45px;
+    cursor: pointer;
+  }
+
   .imgWrapper {
     display: inline-block;
     position: relative;
@@ -139,6 +154,11 @@
     display: flex;
     align-items: center;
     gap: 30px;
+  }
+
+  .chats {
+    height: 40px;
+    cursor: pointer;
   }
 
   .imgWrapper {
@@ -182,6 +202,11 @@
     gap: 25px;
   }
 
+  .chats {
+    height: 40px;
+    cursor: pointer;
+  }
+
   .imgWrapper {
     display: inline-block;
     position: relative;
@@ -221,6 +246,11 @@
     display: flex;
     align-items: center;
     gap: 25px;
+  }
+
+  .chats {
+    height: 40px;
+    cursor: pointer;
   }
 
   .imgWrapper {
@@ -264,6 +294,11 @@
     gap: 25px;
   }
 
+  .chats {
+    height: 35px;
+    cursor: pointer;
+  }
+
   .imgWrapper {
     display: inline-block;
     position: relative;
@@ -303,6 +338,11 @@
     display: flex;
     align-items: center;
     gap: 25px;
+  }
+
+  .chats {
+    height: 30px;
+    cursor: pointer;
   }
 
   .imgWrapper {
