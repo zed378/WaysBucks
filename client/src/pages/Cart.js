@@ -128,6 +128,7 @@ function Cart() {
     try {
       await API.delete(`/transaction/${transID}`);
 
+      setDel(null);
       getTransaction();
     } catch (error) {
       console.log(error);
