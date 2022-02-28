@@ -75,28 +75,87 @@ function Profile() {
 
           {!state.isAdmin ? (
             <div className={cssModules.historyTransaction}>
-              <h1>My Transaction</h1>
               {trans?.map((item) => (
-                <div className={cssModules.transactionCard}>
-                  <div className={cssModules.detilTrans}>
-                    <div className={cssModules.itemTrans}>
-                      <div className={cssModules.imgProduct}>
-                        <img
-                          src={path + item.product.thumbnail}
-                          alt="Product Pic"
-                        />
+                <>
+                  <h1>My Transaction</h1>
+                  <div className={cssModules.transactionCard}>
+                    <div className={cssModules.detilTrans}>
+                      <div className={cssModules.itemTrans}>
+                        <div className={cssModules.imgProduct}>
+                          <img
+                            src={path + item.product.thumbnail}
+                            alt="Product Pic"
+                          />
+                        </div>
+                        <div className={cssModules.itemDesc}>
+                          <h4>{item.product.title}</h4>
+                          <p className={cssModules.datePurchase}>
+                            {dateFormat(item.createdAt, "fullDate")}
+                          </p>
+                          <br />
+                          <p className={cssModules.topping}>
+                            Topping: {item.topping.title}
+                          </p>
+                          <p className={cssModules.productPrice}>
+                            Price:{" "}
+                            {toRupiah(item.total, {
+                              formal: false,
+                              floatingPoint: 0,
+                            })}
+                          </p>
+                        </div>
                       </div>
-                      <div className={cssModules.itemDesc}>
-                        <h4>{item.product.title}</h4>
-                        <p className={cssModules.datePurchase}>
-                          {dateFormat(item.createdAt, "fullDate")}
+                    </div>
+
+                    <div className={cssModules.productStamp}>
+                      <img
+                        src={logo}
+                        alt="Logo"
+                        className={cssModules.bucksLogo}
+                      />
+                      <img
+                        src={qr}
+                        alt="QR Code"
+                        className={cssModules.qrCode}
+                      />
+                      <div className={cssModules.stats}>
+                        <p
+                          className={cssModules.productStatus}
+                          style={{
+                            background:
+                              item.status === "otw"
+                                ? "rgba(0, 209, 255, 0.2)"
+                                : item.status === "process"
+                                ? "rgba(0, 209, 255, 0.2)"
+                                : item.status === "cancel"
+                                ? "#E8393950"
+                                : item.status === "pending"
+                                ? "rgba(0, 209, 255, 0.2)"
+                                : "#78A85A30",
+                            color:
+                              item.status === "otw"
+                                ? "#0063cf"
+                                : item.status === "process"
+                                ? "#0063cf"
+                                : item.status === "cancel"
+                                ? "#E83939"
+                                : item.status === "pending"
+                                ? "#0063cf"
+                                : "#78A85A",
+                          }}
+                        >
+                          {item.status === "process"
+                            ? "Wait Approval"
+                            : item.status === "otw"
+                            ? "On The Way"
+                            : item.status === "cancel"
+                            ? "Cancel"
+                            : item.status === "pending"
+                            ? "Need To Pay"
+                            : "Success"}
                         </p>
-                        <br />
-                        <p className={cssModules.topping}>
-                          Topping: {item.topping.title}
-                        </p>
-                        <p className={cssModules.productPrice}>
-                          Price:{" "}
+                        <p className={cssModules.totalPurchase}>
+                          Sub Total:{" "}
                           {toRupiah(item.total, {
                             formal: false,
                             floatingPoint: 0,
@@ -105,60 +164,7 @@ function Profile() {
                       </div>
                     </div>
                   </div>
-
-                  <div className={cssModules.productStamp}>
-                    <img
-                      src={logo}
-                      alt="Logo"
-                      className={cssModules.bucksLogo}
-                    />
-                    <img src={qr} alt="QR Code" className={cssModules.qrCode} />
-                    <div className={cssModules.stats}>
-                      <p
-                        className={cssModules.productStatus}
-                        style={{
-                          background:
-                            item.status === "otw"
-                              ? "rgba(0, 209, 255, 0.2)"
-                              : item.status === "process"
-                              ? "rgba(0, 209, 255, 0.2)"
-                              : item.status === "cancel"
-                              ? "#E8393950"
-                              : item.status === "pending"
-                              ? "rgba(0, 209, 255, 0.2)"
-                              : "#78A85A30",
-                          color:
-                            item.status === "otw"
-                              ? "#0063cf"
-                              : item.status === "process"
-                              ? "#0063cf"
-                              : item.status === "cancel"
-                              ? "#E83939"
-                              : item.status === "pending"
-                              ? "#0063cf"
-                              : "#78A85A",
-                        }}
-                      >
-                        {item.status === "process"
-                          ? "Wait Approval"
-                          : item.status === "otw"
-                          ? "On The Way"
-                          : item.status === "cancel"
-                          ? "Cancel"
-                          : item.status === "pending"
-                          ? "Need To Pay"
-                          : "Success"}
-                      </p>
-                      <p className={cssModules.totalPurchase}>
-                        Sub Total:{" "}
-                        {toRupiah(item.total, {
-                          formal: false,
-                          floatingPoint: 0,
-                        })}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                </>
               ))}
             </div>
           ) : (
