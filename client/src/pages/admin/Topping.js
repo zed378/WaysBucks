@@ -52,7 +52,7 @@ function Topping() {
     try {
       await API.delete("/topping/" + id);
 
-      setDel(false);
+      setDel(null);
 
       getToppings();
     } catch (error) {

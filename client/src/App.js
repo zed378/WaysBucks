@@ -114,7 +114,7 @@ function App() {
             <Route exact path="/profile-edit/:id" element={<ProfileEdit />} />
             <Route exact path="/profile-edit/:id" element={<ProfileEdit />} />
             <Route exact path="/chat" element={<Chat />} />
-            <Route exact path="/chat-admin" element={<Chat />} />
+            <Route exact path="/chat-admin" element={<ChatAdmin />} />
           </Route>
         </Routes>
       </Router>

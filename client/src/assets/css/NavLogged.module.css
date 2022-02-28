@@ -1,11 +1,11 @@
 .navContainer {
   width: 100%;
-  height: auto;
+  height: 17.5vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 50px 150px;
+  padding: 0 150px;
 }
 
 .navContainer > img {
@@ -69,12 +69,12 @@
 @media only screen and (max-width: 1440px) {
   .navContainer {
     width: 100%;
-    height: auto;
+    height: 17.5vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 30px 75px;
+    padding: 0 75px;
   }
 
   .navContainer > img {
@@ -139,12 +139,12 @@
 @media only screen and (max-width: 1366px) {
   .navContainer {
     width: 100%;
-    height: auto;
+    height: 17.5vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 30px 50px;
+    padding: 0 50px;
   }
 
   .navContainer > img {
@@ -209,12 +209,12 @@
 @media only screen and (max-width: 1024px) {
   .navContainer {
     width: 100%;
-    height: auto;
+    height: 17.5vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 30px 75px;
+    padding: 0 75px;
   }
 
   .navContainer > img {
@@ -279,12 +279,12 @@
 @media only screen and (max-width: 900px) {
   .navContainer {
     width: 100%;
-    height: auto;
+    height: 17.5vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 25px 50px;
+    padding: 0 50px;
   }
 
   .navContainer > img {
@@ -349,12 +349,12 @@
 @media only screen and (max-width: 768px) {
   .navContainer {
     width: 100%;
-    height: auto;
+    height: 17.5vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 25px 50px;
+    padding: 0 50px;
   }
 
   .navContainer > img {
@@ -419,12 +419,12 @@
 @media only screen and (max-width: 600px) {
   .navContainer {
     width: 100%;
-    height: auto;
+    height: 17.5vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 25px 35px;
+    padding: 0 35px;
   }
 
   .navContainer > img {
@@ -489,12 +489,12 @@
 @media only screen and (max-width: 480px) {
   .navContainer {
     width: 100%;
-    height: auto;
+    height: 12.5vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 25px 35px;
+    padding: 0 35px;
   }
 
   .navContainer > img {
@@ -559,12 +559,12 @@
 @media only screen and (max-width: 360px) {
   .navContainer {
     width: 100%;
-    height: auto;
+    height: 10vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 20px 35px;
+    padding: 0 35px;
   }
 
   .navContainer > img {

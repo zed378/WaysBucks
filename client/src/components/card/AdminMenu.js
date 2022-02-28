@@ -21,10 +21,10 @@ function AdminMenu(props) {
   let navigate = useNavigate();
 
   const LogOut = () => {
-    navigate("/");
     dispatch({
       type: "LOGOUT",
     });
+    navigate("/");
   };
 
   return (
