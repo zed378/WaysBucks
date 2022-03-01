@@ -6,23 +6,16 @@ const socketIo = (io) => {
 
     socket.on("load admin contact", async () => {
       try {
-        const adminContact = await user.findOne({
-          include: [
-            {
-              model: profile,
-              as: "profile",
-              attributes: {
-                exclude: ["createdAt", "updatedAt"],
-              },
-            },
-          ],
-          where: {
-            status: "admin",
-          },
+        let adminContact = await user.findOne({
+          where: { isAdmin: 1 },
+
           attributes: {
             exclude: ["createdAt", "updatedAt", "password"],
           },
         });
+
+        adminContact = JSON.parse(JSON.stringify(adminContact));
+        adminContact.photo = process.env.PHOTO_PATH + adminContact.photo;
 
         socket.emit("admin contact", adminContact);
       } catch (err) {
@@ -32,15 +25,10 @@ const socketIo = (io) => {
 
     socket.on("load customer contacts", async () => {
       try {
-        let customerContacts = await user.findAll({
+        let customers = await user.findAll({
+          where: { isAdmin: 0 },
+
           include: [
-            {
-              model: profile,
-              as: "profile",
-              attributes: {
-                exclude: ["createdAt", "updatedAt"],
-              },
-            },
             {
               model: chat,
               as: "recipientMessage",
@@ -48,6 +36,7 @@ const socketIo = (io) => {
                 exclude: ["createdAt", "updatedAt", "idRecipient", "idSender"],
               },
             },
+
             {
               model: chat,
               as: "senderMessage",
@@ -56,23 +45,19 @@ const socketIo = (io) => {
               },
             },
           ],
+
           attributes: {
             exclude: ["createdAt", "updatedAt", "password"],
           },
         });
 
-        customerContacts = JSON.parse(JSON.stringify(customerContacts));
-        customerContacts = customerContacts.map((item) => ({
+        customers = JSON.parse(JSON.stringify(customers));
+        customers = customers.map((item) => ({
           ...item,
-          profile: {
-            ...item.profile,
-            image: item.profile?.image
-              ? process.env.PATH_FILE + item.profile?.image
-              : null,
-          },
+          photo: process.env.PHOTO_PATH + item.photo,
         }));
 
-        socket.emit("customer contacts", customerContacts);
+        socket.emit("customer contacts", customers);
       } catch (err) {
         console.log(err);
       }

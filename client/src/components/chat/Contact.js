@@ -1,11 +1,36 @@
 // import assets
 import cssModules from "../../assets/css/Chat.module.css";
 
-function Contact() {
+function Contact({ dataContact, clickContact, contact }) {
   return (
-    <div className={cssModules.contactUser}>
-      <h1>Test</h1>
-    </div>
+    <>
+      {dataContact.length > 0 ? (
+        <>
+          {dataContact.map((item) => (
+            <div
+              className={cssModules.contactUser}
+              key={item.id}
+              onClick={() => {
+                clickContact(item);
+              }}
+              style={{
+                background: contact?.id === item?.id && "rgb(252, 206, 206)",
+              }}
+            >
+              <div className={cssModules.profileWrapper}>
+                <img src={item.user.photo} alt={item.user.photo} />
+              </div>
+              <div className={cssModules.dataUser}>
+                <p>{item.user.name}</p>
+                <p>{item.message}</p>
+              </div>
+            </div>
+          ))}
+        </>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
 
