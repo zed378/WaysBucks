@@ -1,5 +1,5 @@
 // import model
-const { user, transaction } = require("../../models");
+const { user } = require("../../models");
 
 // import package
 const fs = require("fs");
