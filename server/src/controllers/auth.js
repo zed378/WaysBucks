@@ -134,7 +134,7 @@ exports.login = async (req, res) => {
     const dataToken = {
       id: userExist.id,
       email: userExist.email,
-      name: userExist.fullName,
+      name: userExist.name,
       isAdmin: userExist.isAdmin,
       photo: process.env.PHOTO_PATH + userExist.photo,
     };
